@@ -1,0 +1,1298 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar Master Course</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #14213d;
+            --navy-dark: #0b132b;
+            --orange: #f28c28;
+            --orange-soft: #ffd7a8;
+            --bg: #f7f7f4;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --muted: #64748b;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            color: #334155;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.2rem;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(33, 88, 207, 0.08);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid rgba(242, 140, 40, 0.2);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-text small {
+            color: var(--orange);
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-top: 0.15rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            font-weight: 500;
+            color: var(--muted);
+            align-items: center;
+        }
+
+        .nav-links a {
+            padding: 0.65rem 0.9rem;
+            border-radius: 999px;
+            color: var(--navy);
+            text-decoration: none;
+            transition: color 0.25s ease, transform 0.25s ease, background 0.25s ease, text-shadow 0.25s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            opacity: 0;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.14), rgba(14, 165, 233, 0.18));
+            transition: opacity 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #ffffff;
+            text-shadow: 0 0 18px rgba(236, 72, 153, 0.8), 0 0 24px rgba(14, 165, 233, 0.8);
+            transform: translateY(-1px);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            opacity: 1;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 0;
+            display: grid;
+            gap: 6px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .nav-toggle span {
+            width: 100%;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ec4899, #0ea5e9);
+            box-shadow: 0 0 12px rgba(236, 72, 153, 0.6), 0 0 18px rgba(14, 165, 233, 0.4);
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .navbar.nav-open .nav-toggle span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .navbar.nav-open .nav-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar.nav-open .nav-toggle span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        @media (min-width: 720px) {
+            .nav-links {
+                display: flex !important;
+            }
+
+            .nav-toggle {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-toggle {
+                display: grid;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                margin: 0;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+                padding: 1rem 1rem 1.2rem;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+                display: none;
+            }
+
+            .navbar.nav-open .nav-links {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                color: var(--navy);
+                text-align: center;
+            }
+
+            .navbar {
+                padding: 1rem 1rem 0.5rem;
+                align-items: flex-start;
+                gap: 0.75rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.75rem;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                padding: 0;
+                transform: translateY(-12px);
+                transition: max-height 0.35s ease, opacity 0.35s ease, transform 0.35s ease, padding 0.35s ease;
+            }
+
+            .navbar.nav-open .nav-links {
+                max-height: 420px;
+                opacity: 1;
+                padding: 0.75rem 0 0.5rem;
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                width: 100%;
+                justify-content: center;
+                padding: 0.95rem 1.25rem;
+            }
+
+            .brand {
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
+        .poster-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+            width: 100%;
+            max-width: 1200px;
+            min-height: 680px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 2rem auto;
+        }
+
+        @media (min-width: 1200px) {
+            .poster-container {
+                max-width: 1440px;
+                min-height: 760px;
+                margin: 2.5rem auto;
+            }
+
+            .poster-header {
+                padding: 2.5rem 4rem;
+            }
+
+            .poster-content {
+                padding: 0 4rem 3.5rem 4rem;
+                gap: 2.5rem;
+            }
+
+            .hero-left {
+                flex: 1 1 480px;
+                max-width: 760px;
+            }
+
+            .hero-right {
+                flex: 1 1 420px;
+                min-height: 500px;
+                max-width: 680px;
+            }
+
+            .hero-image-bg {
+                width: 620px;
+                height: 620px;
+                left: 50%;
+                top: 42%;
+            }
+
+            .hero-title {
+                font-size: clamp(4.2rem, 4vw, 7rem);
+            }
+
+            .hero-quote-text {
+                font-size: clamp(2.6rem, 4vw, 4rem);
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .poster-container {
+                max-width: 1800px;
+                min-height: 840px;
+            }
+
+            .poster-header {
+                padding: 3rem 5rem;
+            }
+
+            .poster-content {
+                padding: 0 5rem 4rem 5rem;
+                gap: 3rem;
+            }
+
+            .hero-left {
+                flex: 1 1 520px;
+                max-width: 840px;
+            }
+
+            .hero-right {
+                min-height: 560px;
+                max-width: 760px;
+            }
+
+            .hero-image-bg {
+                width: 720px;
+                height: 720px;
+                left: 50%;
+                top: 44%;
+            }
+
+            .hero-title {
+                font-size: clamp(4.8rem, 3vw, 8rem);
+            }
+
+            .hero-quote-text {
+                font-size: clamp(2.8rem, 3.5vw, 4.4rem);
+            }
+        }
+
+        /* Decorative background elements */
+        .blob-top-right {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .blob-bottom-left {
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236,72,153,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .poster-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-img,
+        .board-logo {
+            width: auto;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 24px;
+            background: white;
+            padding: 0.65rem;
+            box-shadow: 0 20px 50px rgba(15,23,42,0.08);
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        .header-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #1d4ed8;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #475569;
+            margin-top: 0.2rem;
+        }
+
+        .poster-content {
+            display: flex;
+            flex: 1;
+            padding: 0 3rem 3rem 3rem;
+            position: relative;
+            z-index: 10;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .hero-left {
+            flex: 1 1 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+            min-width: 0;
+            max-width: 640px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            background: rgba(255,255,255,0.75);
+            border: 1px solid rgba(148,163,184,0.25);
+            border-radius: 9999px;
+            padding: 0.8rem 1.15rem;
+            color: #334155;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(15,23,42,0.04);
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            font-size: clamp(3.7rem, 6vw, 6.5rem);
+            line-height: 0.9;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #0f172a;
+            max-width: 100%;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, #ec4899 0%, #6366f1 40%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hero-quote {
+            border: 2px solid rgba(99,102,241,0.22);
+            border-radius: 30px;
+            padding: 1.3rem 1.5rem;
+            background: rgba(255,255,255,0.88);
+            max-width: 680px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .quote-mark {
+            font-size: 4.5rem;
+            color: rgba(236,72,153,0.6);
+            font-weight: 900;
+            position: absolute;
+        }
+
+        .quote-start {
+            top: -14px;
+            left: 18px;
+        }
+
+        .quote-end {
+            bottom: -18px;
+            right: 18px;
+        }
+
+        .hero-quote-text {
+            font-size: clamp(2.1rem, 4vw, 3.4rem);
+            line-height: 1.05;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+            padding: 0 0.25rem;
+        }
+
+        .hero-quote-text span {
+            color: transparent;
+            background: linear-gradient(90deg, #ec4899 0%, #6366f1 40%, #3b82f6 100%);
+            -webkit-background-clip: text;
+        }
+
+        .hero-copy {
+            font-size: 1.02rem;
+            color: #475569;
+            line-height: 1.85;
+            max-width: 700px;
+            margin-top: 0.5rem;
+        }
+
+        .hero-copy {
+            max-width: 640px;
+            font-size: 1.05rem;
+            color: #475569;
+            line-height: 1.85;
+        }
+
+        .hero-badges {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(148,163,184,0.18);
+            border-radius: 18px;
+            padding: 1rem 1.1rem;
+            box-shadow: 0 16px 40px rgba(15,23,42,0.06);
+        }
+
+        .hero-badge-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: #eef2ff;
+            color: #3730a3;
+            font-size: 1.2rem;
+            box-shadow: inset 0 1px 2px rgba(15,23,42,0.08);
+        }
+
+        .hero-badge-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            color: #0f172a;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .hero-tag {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #475569;
+            background: rgba(255,255,255,0.88);
+            border: 1px solid rgba(148,163,184,0.18);
+            box-shadow: 0 12px 28px rgba(15,23,42,0.05);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 2rem;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #3b82f6 0%, #9333ea 45%, #ec4899 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 18px 45px rgba(59,130,246,0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 24px 60px rgba(59,130,246,0.28);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 1.5rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(59,130,246,0.24);
+            background: rgba(255,255,255,0.88);
+            color: #1e293b;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(59,130,246,0.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            color: white;
+            background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b);
+            box-shadow: 0 0 18px rgba(99,102,241,0.55), 0 0 32px rgba(236,72,153,0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.45), transparent 35%);
+            opacity: 0.65;
+            pointer-events: none;
+            filter: blur(8px);
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 22px rgba(99,102,241,0.75), 0 0 40px rgba(236,72,153,0.45);
+        }
+
+        .hero-right {
+            flex: 1 1 360px;
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 560px;
+        }
+
+        .person-image {
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            width: 520px;
+            height: 520px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle at center, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.05) 38%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(1px);
+            z-index: 1;
+        }
+
+        .hero-image-bg::after {
+            content: '';
+            position: absolute;
+            inset: 25%;
+            background: radial-gradient(circle at center, rgba(236,72,153,0.22) 0%, transparent 55%);
+            border-radius: 50%;
+        }
+
+        .person-image {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            border-radius: 32px;
+            object-fit: cover;
+            box-shadow: 0 30px 80px rgba(15,23,42,0.18);
+            z-index: 2;
+        }
+
+        .blob-top-right {
+            top: -100px;
+            right: -100px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0) 65%);
+        }
+
+        .blob-bottom-left {
+            bottom: -130px;
+            left: -140px;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(236,72,153,0.16) 0%, rgba(236,72,153,0) 68%);
+        }
+
+        /* Floating elements for visual interest */
+        .floating-badge {
+            position: absolute;
+            background: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 30;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .badge-1 { top: 20%; right: 50%; }
+        .badge-2 { bottom: 30%; right: 10%; animation-delay: -3s; }
+        .badge-icon { color: #f59e0b; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-top: 4px solid transparent;
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-border-1 { border-image: linear-gradient(to right, #3b82f6, #8b5cf6) 1; }
+        .module-border-2 { border-image: linear-gradient(to right, #ec4899, #f43f5e) 1; }
+        .module-border-3 { border-image: linear-gradient(to right, #10b981, #3b82f6) 1; }
+        .module-border-4 { border-image: linear-gradient(to right, #f59e0b, #ec4899) 1; }
+
+        .feature-item-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        @media (max-width: 1024px) {
+            .poster-container {
+                min-height: auto;
+                margin: 1rem;
+                width: calc(100% - 2rem);
+            }
+            .poster-content { flex-direction: column; gap: 1.75rem; padding: 0 1.5rem 2rem 1.5rem; }
+            .hero-left { max-width: 100%; min-width: auto; }
+            .hero-right { width: 100%; min-height: 360px; max-width: 100%; }
+            .hero-image-bg { width: 420px; height: 420px; left: 50%; top: 35%; }
+        }
+        
+        @media (max-width: 640px) {
+            .poster-header { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+            .header-text { text-align: center; }
+            .logo-container { justify-content: center; }
+            .poster-content { padding: 0 1rem 1.5rem 1rem; }
+            .hero-left { width: 100%; }
+            .hero-right { width: 100%; min-height: 300px; max-width: 100%; }
+            .hero-image-bg { width: 240px; height: 240px; top: 26%; }
+            .hero-badges { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.6rem; }
+            .hero-quote { padding: 1rem 1rem; }
+            .hero-quote-text { font-size: 2.2rem; }
+            .quote-mark { font-size: 3.2rem; }
+            .hero-copy { font-size: 0.98rem; }
+        }
+
+        /* Make card action links larger and easier to tap/click */
+        .feature-item-card {
+            position: relative;
+            padding-bottom: 1.25rem;
+        }
+
+        .feature-item-card a.btn {
+            display: inline-block;
+            font-size: 1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            font-weight: 600;
+            box-shadow: 0 6px 18px rgba(59,130,246,0.18);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .feature-item-card a.btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59,130,246,0.22);
+        }
+
+        /* If an invisible overlay link is used to make the whole card clickable, expand it to cover the card */
+        .feature-item-card .card-link {
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            text-indent: -9999px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 640px) {
+            .feature-item-card a.btn { font-size: 1rem; padding: 0.7rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html#top" class="brand">
+            <img src="Asset/channel%20logo-2.png" alt="Target English logo" class="brand-logo">
+            <span class="brand-text">Target English <small>Mock Test Platform</small></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-links">
+            <a href="index.html#classes">Classes</a>
+            <a href="index.html#videos">Videos</a>
+            <a href="index.html#batches">Batches</a>
+            <a href="index.html#materials">Study Material</a>
+            <a href="index.html#audio">Audio Lessons</a>
+            <a href="index.html#chat">AI Chat</a>
+            <a href="login.html" class="btn btn-secondary small btn-glow nav-login">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero / Poster Section -->
+    <div class="poster-container mx-auto">
+        <!-- Background decorative elements -->
+        <div class="blob-top-right"></div>
+        <div class="blob-bottom-left"></div>
+
+        <header class="poster-header">
+            <div class="logo-container">
+                <img src="Asset/channel%20logo-2.png" alt="Channel Logo" class="logo-img">
+                <img src="Asset/BSEB%20Logo.jpg" alt="BSEB Logo" class="board-logo">
+            </div>
+            <div class="header-text">
+                <div class="header-title">EXPERT GUIDANCE</div>
+                <div class="header-subtitle">FOR YOUR SUCCESS</div>
+            </div>
+        </header>
+
+        <main class="poster-content">
+            <div class="hero-left">
+                <span class="hero-tag">English Grammar Master</span>
+                <h1 class="hero-title">सीखें वो <span>अंग्रेजी</span>,</h1>
+                <div class="hero-quote">
+                    <span class="quote-mark quote-start">“</span>
+                    <p class="hero-quote-text">जो आपको भीड़ से <span>अलग</span> बनाए।</p>
+                    <span class="quote-mark quote-end">”</span>
+                </div>
+                <p class="hero-copy">Learn the English that makes you stand out from the crowd. Build confidence with grammar, spoken English, and smart communication for board exams and competitive success.</p>
+
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <span class="hero-badge-icon">📘</span>
+                        <div class="hero-badge-text">Grammar & Vocabulary</div>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-icon">📣</span>
+                        <div class="hero-badge-text">Live Classes</div>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-icon">⭐</span>
+                        <div class="hero-badge-text">Top Educator</div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#syllabus" class="btn-primary">Join Now</a>
+                    <a href="grammar-class-video-soon.html" class="btn-secondary">Video Lessons</a>
+                    <a href="index.html" class="btn-secondary btn-glow">Back to Home</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-image-bg"></div>
+                <div class="person-image-container">
+                    <img src="Asset/Educator Ravi Sir.png" alt="Educator Ravi Sir" class="person-image">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Course Info Bar -->
+    <div class="max-w-5xl mx-auto px-4 mb-16 relative z-20 -mt-10 sm:-mt-16">
+        <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col md:flex-row justify-around items-center gap-6 border border-slate-100">
+            <div class="text-center">
+                <p class="text-slate-500 font-medium uppercase tracking-wider text-sm mb-1">Course Type</p>
+                <p class="text-2xl font-bold text-slate-800">English Grammar Master</p>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-slate-200"></div>
+            <div class="text-center">
+                <p class="text-slate-500 font-medium uppercase tracking-wider text-sm mb-1">Duration</p>
+                <p class="text-2xl font-bold text-slate-800">12–16 Weeks</p>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-slate-200"></div>
+            <div class="text-center">
+                <p class="text-slate-500 font-medium uppercase tracking-wider text-sm mb-1">Total Content</p>
+                <p class="text-2xl font-bold text-slate-800">48–60 Classes</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Syllabus Section -->
+    <section id="syllabus" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Complete Course Syllabus</h2>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">From beginner to advanced, everything you need to master the English language in one structured learning path.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Module 1 -->
+            <div class="module-card module-border-1 border-t-4 border-blue-500">
+                <div class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wider">Module 1</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Grammar Basics</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Introduction to English Grammar</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Alphabet & Pronunciation</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Vowels and Consonants</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Words and Sentences</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Types of Sentences</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Capitalization Rules</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Punctuation Marks</li>
+                </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-card module-border-2 border-t-4 border-pink-500">
+                <div class="text-xs font-bold text-pink-600 mb-2 uppercase tracking-wider">Module 2</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Parts of Speech</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Noun, Pronoun & Verb</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Adjective & Adverb</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Preposition & Conjunction</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Interjection</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Determiners</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Articles (A, An, The)</li>
+                </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-card module-border-3 border-t-4 border-emerald-500">
+                <div class="text-xs font-bold text-emerald-600 mb-2 uppercase tracking-wider">Module 3</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Nouns</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Types of Nouns</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Countable & Uncountable</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Singular & Plural</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Possessive Nouns</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Collective Nouns</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Gender</li>
+                </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module-card module-border-4 border-t-4 border-amber-500">
+                <div class="text-xs font-bold text-amber-600 mb-2 uppercase tracking-wider">Module 4</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Pronouns</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Personal & Demonstrative</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Reflexive & Relative</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Indefinite Pronouns</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Interrogative Pronouns</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Possessive Pronouns</li>
+                </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-card module-border-1 border-t-4 border-blue-500">
+                <div class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wider">Module 5</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Verbs</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Action, Helping & Main Verbs</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Modal Verbs</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Regular & Irregular Verbs</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Finite & Non-Finite Verbs</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Gerunds & Infinitives</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Participles</li>
+                </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module-card module-border-2 border-t-4 border-pink-500 md:col-span-2 lg:col-span-1 xl:col-span-2 row-span-2">
+                <div class="text-xs font-bold text-pink-600 mb-2 uppercase tracking-wider">Module 6 (Most Important)</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Mastering Tenses</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-semibold text-slate-700 text-sm mb-2">Present & Past Tense</h4>
+                        <ul class="space-y-1 text-slate-600 text-sm">
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Simple Present / Past</li>
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Present / Past Continuous</li>
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Present / Past Perfect</li>
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Perfect Continuous Tenses</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-700 text-sm mb-2">Future Tense & Practice</h4>
+                        <ul class="space-y-1 text-slate-600 text-sm">
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> All 4 Future Forms</li>
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Formulas & Rules</li>
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Examples & Exercises</li>
+                            <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Common Mistakes to Avoid</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module-card module-border-3 border-t-4 border-emerald-500">
+                <div class="text-xs font-bold text-emerald-600 mb-2 uppercase tracking-wider">Module 7</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Subject-Verb Agreement</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Singular Subjects</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Plural Subjects</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Special Rules</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Exceptions</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Practice Questions</li>
+                </ul>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="module-card module-border-4 border-t-4 border-amber-500">
+                <div class="text-xs font-bold text-amber-600 mb-2 uppercase tracking-wider">Module 8</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Articles & Determiners</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> A, An, The</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Zero Article</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Demonstratives</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Quantifiers</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Possessives</li>
+                </ul>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="module-card module-border-1 border-t-4 border-blue-500">
+                <div class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wider">Module 9</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Adjectives</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Types of Adjectives</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Degrees of Comparison</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Order of Adjectives</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Position of Adjectives</li>
+                </ul>
+            </div>
+
+            <!-- Module 10 -->
+            <div class="module-card module-border-2 border-t-4 border-pink-500">
+                <div class="text-xs font-bold text-pink-600 mb-2 uppercase tracking-wider">Module 10</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Adverbs</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Types of Adverbs</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Adverb Placement</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Comparison of Adverbs</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Frequency Adverbs</li>
+                </ul>
+            </div>
+
+            <!-- Module 11 -->
+            <div class="module-card module-border-3 border-t-4 border-emerald-500">
+                <div class="text-xs font-bold text-emerald-600 mb-2 uppercase tracking-wider">Module 11</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Prepositions</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Prepositions of Time & Place</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Direction & Movement</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Common Prepositions</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Practical Usage</li>
+                </ul>
+            </div>
+
+            <!-- Module 12 -->
+            <div class="module-card module-border-4 border-t-4 border-amber-500">
+                <div class="text-xs font-bold text-amber-600 mb-2 uppercase tracking-wider">Module 12</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Conjunctions</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Coordinating Conjunctions</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Subordinating Conjunctions</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Correlative Conjunctions</li>
+                </ul>
+            </div>
+
+            <!-- Module 13 -->
+            <div class="module-card module-border-1 border-t-4 border-blue-500">
+                <div class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wider">Module 13</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Voice</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Active & Passive Voice</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Conversion Rules</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Implementation in All Tenses</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Extensive Practice</li>
+                </ul>
+            </div>
+
+            <!-- Module 14 -->
+            <div class="module-card module-border-2 border-t-4 border-pink-500">
+                <div class="text-xs font-bold text-pink-600 mb-2 uppercase tracking-wider">Module 14</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Narration</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Direct & Indirect Speech</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Rules for Questions & Commands</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Requests & Exclamations</li>
+                </ul>
+            </div>
+
+            <!-- Module 15 -->
+            <div class="module-card module-border-3 border-t-4 border-emerald-500">
+                <div class="text-xs font-bold text-emerald-600 mb-2 uppercase tracking-wider">Module 15</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Question Formation</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> WH Questions</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Yes/No Questions</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Question Tags</li>
+                </ul>
+            </div>
+
+            <!-- Module 16 -->
+            <div class="module-card module-border-4 border-t-4 border-amber-500">
+                <div class="text-xs font-bold text-amber-600 mb-2 uppercase tracking-wider">Module 16</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Sentence Structure</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Subject, Predicate, Phrase, Clause</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Simple & Compound Sentences</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Complex Sentences</li>
+                </ul>
+            </div>
+
+            <!-- Module 17 -->
+            <div class="module-card module-border-1 border-t-4 border-blue-500">
+                <div class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wider">Module 17</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Conditionals</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Zero & First Conditional</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Second & Third Conditional</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Mixed Conditionals</li>
+                </ul>
+            </div>
+
+            <!-- Module 18 -->
+            <div class="module-card module-border-2 border-t-4 border-pink-500">
+                <div class="text-xs font-bold text-pink-600 mb-2 uppercase tracking-wider">Module 18</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Modals in Depth</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Can, Could, May, Might</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Must, Shall, Should</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Will, Would, Ought to</li>
+                </ul>
+            </div>
+
+            <!-- Module 19 -->
+            <div class="module-card module-border-3 border-t-4 border-emerald-500">
+                <div class="text-xs font-bold text-emerald-600 mb-2 uppercase tracking-wider">Module 19</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Common Grammar Topics</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Common Errors & Confusing Words</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Double Negatives & Parallelism</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Redundancy & Collocations</li>
+                </ul>
+            </div>
+
+            <!-- Module 20 -->
+            <div class="module-card module-border-4 border-t-4 border-amber-500">
+                <div class="text-xs font-bold text-amber-600 mb-2 uppercase tracking-wider">Module 20</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Vocabulary Building</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Synonyms & Antonyms</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> One Word Substitution & Idioms</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Phrasal Verbs & Homophones</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Prefixes & Suffixes</li>
+                </ul>
+            </div>
+
+            <!-- Module 21 -->
+            <div class="module-card module-border-1 border-t-4 border-blue-500">
+                <div class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wider">Module 21</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Writing Skills</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Sentence & Paragraph Writing</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Essay & Letter Writing</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Email & Notice Writing</li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-0.5">•</span> Report Writing</li>
+                </ul>
+            </div>
+
+            <!-- Module 22 -->
+            <div class="module-card module-border-2 border-t-4 border-pink-500">
+                <div class="text-xs font-bold text-pink-600 mb-2 uppercase tracking-wider">Module 22</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Practical English</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Daily Conversation & Self Intro</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Interview English</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Public Speaking & Group Discussion</li>
+                    <li class="flex items-start"><span class="text-pink-500 mr-2 mt-0.5">•</span> Formal Communication</li>
+                </ul>
+            </div>
+
+            <!-- Module 23 -->
+            <div class="module-card module-border-3 border-t-4 border-emerald-500">
+                <div class="text-xs font-bold text-emerald-600 mb-2 uppercase tracking-wider">Module 23</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Comprehensive Revision</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Topic-wise Revision</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Mind Maps</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Grammar Charts</li>
+                    <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-0.5">•</span> Formula Sheets</li>
+                </ul>
+            </div>
+
+            <!-- Module 24 -->
+            <div class="module-card module-border-4 border-t-4 border-amber-500">
+                <div class="text-xs font-bold text-amber-600 mb-2 uppercase tracking-wider">Module 24</div>
+                <h3 class="text-lg font-bold text-slate-800 mb-4 pb-2 border-b border-slate-100">Assessment & Certification</h3>
+                <ul class="space-y-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Chapter Quizzes & Weekly Tests</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Monthly & Mock Tests</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Final Grammar Exam</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2 mt-0.5">•</span> Certification Test</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Features Section -->
+    <section class="w-full bg-white py-16 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Course Features</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">Everything you need to guarantee your success in learning English.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="feature-item-card hover:bg-blue-50 transition-colors">
+                    <div class="text-4xl mb-4 bg-slate-50 rounded-full w-16 h-16 flex items-center justify-center">📹</div>
+                    <h4 class="font-bold text-slate-800">Video Lessons</h4>
+                    <a href="grammar-class-video-soon.html" target="_blank" class="btn btn-primary">Start Learning Video Lessons</a>
+                    <a href="grammar-class-video-soon.html" target="_blank" aria-label="Start Learning Video Lessons" class="card reveal card-link"></a>
+                </div>
+
+                <div class="feature-item-card hover:bg-pink-50 transition-colors">
+                    <div class="text-4xl mb-4 bg-slate-50 rounded-full w-16 h-16 flex items-center justify-center">📄</div>
+                    <h4 class="font-bold text-slate-800">PDF Notes</h4>
+                    <a href="grammar-class.html" target="_blank" class="btn btn-primary">Download PDF Notes</a>
+                    <a href="grammar-class.html" target="_blank" aria-label="Download PDF Notes" class="card reveal card-link"></a>
+                </div>
+
+                <div class="feature-item-card hover:bg-amber-50 transition-colors">
+                    <div class="text-4xl mb-4 bg-slate-50 rounded-full w-16 h-16 flex items-center justify-center">🏆</div>
+                    <h4 class="font-bold text-slate-800">Final Certificate</h4>
+                    <a href="certificate.html" target="_blank" class="btn btn-primary">View Certificate Details</a>
+                    <a href="certificate.html" target="_blank" aria-label="View Certificate Details" class="card reveal card-link"></a>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="#" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    Enroll in Course Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        if (navToggle && navbar) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navbar.classList.toggle('nav-open');
+                navToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                if (navbar.classList.contains('nav-open')) {
+                    navbar.classList.remove('nav-open');
+                    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

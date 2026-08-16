@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart Study - Career Corner</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-primary": "#002e6a",
+                            "on-tertiary-fixed": "#001f26",
+                            "tertiary-container": "#009eb9",
+                            "inverse-surface": "#e1e2ec",
+                            "error-container": "#93000a",
+                            "secondary-fixed-dim": "#d0bcff",
+                            "inverse-primary": "#005ac2",
+                            "error": "#ffb4ab",
+                            "surface-container": "#1d2027",
+                            "primary-fixed": "#d8e2ff",
+                            "secondary-fixed": "#e9ddff",
+                            "background": "#10131a",
+                            "tertiary-fixed": "#acedff",
+                            "primary-container": "#4d8eff",
+                            "on-primary-fixed-variant": "#004395",
+                            "outline-variant": "#424754",
+                            "on-surface": "#e1e2ec",
+                            "on-error-container": "#ffdad6",
+                            "surface-tint": "#adc6ff",
+                            "on-background": "#e1e2ec",
+                            "surface": "#10131a",
+                            "on-tertiary-container": "#002f38",
+                            "tertiary": "#4cd7f6",
+                            "on-secondary-fixed-variant": "#5516be",
+                            "surface-container-highest": "#32353c",
+                            "on-tertiary": "#003640",
+                            "tertiary-fixed-dim": "#4cd7f6",
+                            "secondary-container": "#571bc1",
+                            "surface-dim": "#10131a",
+                            "secondary": "#d0bcff",
+                            "on-surface-variant": "#c2c6d6",
+                            "surface-container-low": "#191b23",
+                            "surface-bright": "#363941",
+                            "on-primary-fixed": "#001a42",
+                            "on-secondary-fixed": "#23005c",
+                            "on-secondary-container": "#c4abff",
+                            "on-tertiary-fixed-variant": "#004e5c",
+                            "primary-fixed-dim": "#adc6ff",
+                            "surface-container-lowest": "#0b0e15",
+                            "inverse-on-surface": "#2e3038",
+                            "primary": "#adc6ff",
+                            "on-error": "#690005",
+                            "on-primary-container": "#00285d",
+                            "outline": "#8c909f",
+                            "on-secondary": "#3c0091",
+                            "surface-variant": "#32353c",
+                            "surface-container-high": "#272a31"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "unit": "4px",
+                            "card-inner-padding": "20px",
+                            "container-padding": "24px",
+                            "gutter-grid": "20px",
+                            "section-gap": "40px"
+                    },
+                    "fontFamily": {
+                            "body-base": [
+                                    "Inter", "sans-serif"
+                            ],
+                            "headline-lg-mobile": [
+                                    "Inter", "sans-serif"
+                            ],
+                            "title-md": [
+                                    "Inter", "sans-serif"
+                            ],
+                            "display-lg": [
+                                    "Inter", "sans-serif"
+                            ],
+                            "headline-lg": [
+                                    "Inter", "sans-serif"
+                            ],
+                            "body-sm": [
+                                    "Inter", "sans-serif"
+                            ],
+                            "label-caps": [
+                                    "JetBrains Mono", "monospace"
+                            ]
+                    },
+                    "fontSize": {
+                            "body-base": [
+                                    "16px",
+                                    {
+                                            "lineHeight": "1.6",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "headline-lg-mobile": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "1.2",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "title-md": [
+                                    "20px",
+                                    {
+                                            "lineHeight": "1.4",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "display-lg": [
+                                    "48px",
+                                    {
+                                            "lineHeight": "1.1",
+                                            "letterSpacing": "-0.04em",
+                                            "fontWeight": "800"
+                                    }
+                            ],
+                            "headline-lg": [
+                                    "32px",
+                                    {
+                                            "lineHeight": "1.2",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "body-sm": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "1.5",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "label-caps": [
+                                    "12px",
+                                    {
+                                            "lineHeight": "1",
+                                            "letterSpacing": "0.1em",
+                                            "fontWeight": "600"
+                                    }
+                            ]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Styles for Glows and Scrollbars */
+        body {
+            background-color: #08111F;
+        }
+        
+        .glass-panel {
+            background: rgba(20, 30, 50, 0.65);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-panel:hover {
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 20px rgba(76, 215, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .neon-glow-primary {
+            box-shadow: 0 0 15px rgba(173, 198, 255, 0.3);
+        }
+
+        .neon-glow-tertiary {
+            box-shadow: 0 0 15px rgba(76, 215, 246, 0.3);
+        }
+
+        .ai-bubble-glass {
+            background: rgba(139, 92, 246, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- App Container -->
+<div class="flex w-full min-h-screen relative overflow-hidden">
+<!-- Background Decorative Elements -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-tertiary/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface-container/65 backdrop-blur-[20px] w-[260px] h-screen sticky left-0 top-0 border-r border-white/10 shadow-[0_0_20px_rgba(173,198,255,0.05)] z-40 flex-col py-container-padding px-4">
+<!-- Header -->
+<div class="flex items-center gap-4 mb-section-gap px-2">
+<img alt="User Workspace Avatar" class="w-12 h-12 rounded-full border-2 border-primary/30 object-cover" data-alt="A stylized, glowing futuristic avatar of a user in a dark mode digital workspace, with subtle neon blue accents. A premium, high-tech EdTech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBOgI00SPqESdJvrJeJFyAhLNgSq0X1OppPVH0iu-g84D0LAwNLA-UIT5q2TaF-12Oc4vQu1nv7kRgIzV8XDRrbgHefAsNwuA7H203Xobm2csz6Jy0j0ma0CiC-bFa4lmeO2d5q-L8R2ONQvvi0RfrqVvuWyCahmkRZzHl0YK3u5eYi6hYrkPcI7a45LbIshrZxlI7t2mpzaAAtBq0VFUzAiwDXK5bOqn3mf2423e5TLaRv5XzfICThQ"/>
+<div>
+<h1 class="font-headline-lg text-title-md font-bold tracking-tight text-primary">Smart Study</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Premium Learning</p>
+</div>
+</div>
+<!-- Primary Nav -->
+<ul class="flex flex-col gap-2 flex-grow">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:scale-95 group" href="dashboard.html">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">dashboard</span>
+<span class="font-body-base text-body-base font-medium">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:scale-95 group" href="study-planner.html">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">calendar_month</span>
+<span class="font-body-base text-body-base font-medium">Study Planner</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:scale-95 group" href="performance.html">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">insights</span>
+<span class="font-body-base text-body-base font-medium">Performance</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:scale-95 group" href="exam-center.html">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">school</span>
+<span class="font-body-base text-body-base font-medium">Exam Center</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:scale-95 group" href="focus.html">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">timer</span>
+<span class="font-body-base text-body-base font-medium">Focus</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container/20 text-primary border-r-2 border-primary active:scale-95" href="career-corner.html">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-body-base text-body-base font-semibold">Career Corner</span>
+</a>
+</li>
+</ul>
+<!-- CTA -->
+<div class="mt-8 mb-4 px-2">
+<button class="w-full bg-gradient-to-r from-primary-container to-tertiary-container text-white py-3 rounded-lg font-title-md text-body-base font-semibold neon-glow-primary hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+                    Upgrade to Pro
+                </button>
+</div>
+<!-- Footer Nav -->
+<ul class="flex flex-col gap-1 border-t border-white/5 pt-4">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-outline-variant">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-outline-variant">help</span>
+<span class="font-body-sm text-body-sm">Help</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col relative z-10 w-full md:w-[calc(100%-260px)] h-screen overflow-y-auto">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-[40px] sticky top-0 w-full z-50 border-b border-white/5 shadow-sm flex justify-between items-center h-16 px-container-padding">
+<!-- Mobile Menu Button & Brand -->
+<div class="flex items-center gap-4 md:hidden">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-lg-mobile text-title-md font-extrabold text-primary">Smart Study</span>
+</div>
+<!-- Search -->
+<div class="hidden md:flex items-center bg-black/20 border border-white/5 rounded-full px-4 py-2 w-64 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/50 transition-all">
+<span class="material-symbols-outlined text-outline-variant text-[20px] mr-2">search</span>
+<input class="bg-transparent border-none outline-none text-body-sm font-body-sm text-on-surface placeholder-on-surface-variant w-full" placeholder="Search resources..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center gap-2 bg-surface-container border border-white/10 px-4 py-1.5 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-tertiary text-[18px]">timer</span>
+<span class="font-label-caps text-label-caps text-on-surface">Pomodoro</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors relative active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full shadow-[0_0_8px_rgba(76,215,246,0.8)]"></span>
+</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-primary/20 object-cover ml-2 cursor-pointer" data-alt="A small circular avatar of a student profile in a dark futuristic UI setting. Cool blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu0um-4IToZWxgp8azbwKuBhTXQ49hJmbNASOo6Y5j9usymZ2gS09TdNIoUYnaYe20HJNQzq2iQeLokJrzx4NiRNe4OwFQh1vLFjH6FNdTZz3jpM-tAj93B8-ZdjIqnpObSA3myVY7CQN1icgRgygl_9U_Rbidm73FWDwbqJnJbEXl89o2KcmssCzGvU7FCXmbwa8lB-Oy6imCZEZwVB0DQMwW9V3wLRu3La4Tgd33OAzs5sMVwhfa-w"/>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-4 md:p-container-padding pb-32">
+<!-- Page Header -->
+<div class="mb-section-gap flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-display-lg text-headline-lg md:text-display-lg text-on-surface font-extrabold tracking-tight mb-2">Career Corner</h2>
+<p class="font-body-base text-body-base text-on-surface-variant max-w-2xl">Explore personalized roadmaps, discover opportunities, and get guidance from your AI mentor to shape your future.</p>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-grid">
+<!-- Left Column (Wider on Desktop) -->
+<div class="md:col-span-8 flex flex-col gap-gutter-grid">
+<!-- Interactive Roadmaps Card -->
+<div class="glass-panel rounded-xl p-card-inner-padding relative overflow-hidden group">
+<!-- Decor -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-primary/10 transition-colors duration-500"></div>
+<div class="flex justify-between items-center mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">map</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">Career Roadmaps</h3>
+</div>
+<button class="text-tertiary font-body-sm text-body-sm hover:underline flex items-center gap-1">
+                                    View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Roadmap Timeline Container -->
+<div class="relative pt-8 pb-4 px-2">
+<!-- Track -->
+<div class="absolute top-12 left-0 w-full h-1 bg-white/5 rounded-full">
+<div class="h-full bg-gradient-to-r from-primary to-tertiary rounded-full w-[60%] relative">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_10px_#4cd7f6]"></div>
+</div>
+</div>
+<!-- Nodes -->
+<div class="flex justify-between relative z-10">
+<!-- Node 1 -->
+<div class="flex flex-col items-center group/node cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-primary flex items-center justify-center mb-3 group-hover/node:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface">CS Fundamentals</span>
+</div>
+<!-- Node 2 -->
+<div class="flex flex-col items-center group/node cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-primary flex items-center justify-center mb-3 group-hover/node:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[16px] text-primary">code</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface">Data Structures</span>
+</div>
+<!-- Node 3 (Active) -->
+<div class="flex flex-col items-center group/node cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 border-2 border-tertiary flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(76,215,246,0.4)] group-hover/node:scale-110 transition-transform -mt-1">
+<span class="material-symbols-outlined text-[20px] text-tertiary">developer_mode</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary font-bold">System Design</span>
+</div>
+<!-- Node 4 -->
+<div class="flex flex-col items-center group/node cursor-pointer opacity-50">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center mb-3 group-hover/node:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px] text-outline-variant">lock</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Cloud Arch</span>
+</div>
+</div>
+</div>
+<!-- Current Focus Details -->
+<div class="mt-6 bg-black/20 border border-white/5 rounded-lg p-4 flex gap-4 items-start">
+<div class="w-12 h-12 rounded bg-tertiary/10 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[24px]">architecture</span>
+</div>
+<div>
+<h4 class="font-body-base text-body-base font-semibold text-on-surface mb-1">Current Module: System Design</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Focus on scalability, microservices, and load balancing principles to prepare for senior engineering roles.</p>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface rounded text-label-caps font-label-caps text-primary/80 border border-primary/20">Est. 4 Weeks</span>
+<span class="px-2 py-1 bg-surface rounded text-label-caps font-label-caps text-tertiary/80 border border-tertiary/20">High Priority</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommendations Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-grid">
+<!-- Opportunities List -->
+<div class="glass-panel rounded-xl p-card-inner-padding flex flex-col h-[400px]">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">work_history</span>
+                                        Opportunities
+                                    </h3>
+<button class="p-1 rounded hover:bg-white/10 text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto pr-2 space-y-3">
+<!-- Item 1 -->
+<a class="block p-3 rounded-lg border border-white/5 bg-black/10 hover:bg-white/5 hover:border-white/10 transition-all group" href="#">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Google SWE Intern 2025</h4>
+<span class="material-symbols-outlined text-[16px] text-tertiary">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2 text-xs">Summer Internship • Remote/Hybrid</p>
+<div class="flex items-center gap-2 text-xs">
+<span class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.5)]"></span>
+<span class="text-on-surface-variant font-label-caps">Matches your profile</span>
+</div>
+</a>
+<!-- Item 2 -->
+<a class="block p-3 rounded-lg border border-white/5 bg-black/10 hover:bg-white/5 hover:border-white/10 transition-all group" href="#">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Women in Tech Scholarship</h4>
+<span class="material-symbols-outlined text-[16px] text-outline-variant group-hover:text-tertiary transition-colors">star_border</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2 text-xs">Grant: $5,000 • Deadline: Oct 15</p>
+<div class="flex items-center gap-2 text-xs">
+<span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+<span class="text-on-surface-variant font-label-caps">Action Required Soon</span>
+</div>
+</a>
+<!-- Item 3 -->
+<a class="block p-3 rounded-lg border border-white/5 bg-black/10 hover:bg-white/5 hover:border-white/10 transition-all group" href="#">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Stripe Backend Internship</h4>
+<span class="material-symbols-outlined text-[16px] text-outline-variant group-hover:text-tertiary transition-colors">star_border</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2 text-xs">Fall 2024 • San Francisco, CA</p>
+<div class="flex items-center gap-2 text-xs">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="text-on-surface-variant font-label-caps">Saved</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Course Recommendations -->
+<div class="glass-panel rounded-xl p-card-inner-padding flex flex-col h-[400px]">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">school</span>
+                                    Suggested Courses
+                                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 pb-4 border-b border-white/10 text-xs">Based on your recent 'Data Structures' assessment performance.</p>
+<div class="flex-1 overflow-y-auto space-y-4 pr-2">
+<!-- Course 1 -->
+<div class="flex gap-3">
+<div class="w-16 h-16 rounded bg-black/40 border border-white/10 flex-shrink-0 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-tertiary text-[32px] opacity-80">account_tree</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h4 class="font-body-sm text-body-sm font-medium text-on-surface line-clamp-1">Advanced Graph Algorithms</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">schedule</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">12 hrs</span>
+</div>
+<div class="mt-2 h-1 bg-white/10 rounded-full w-full overflow-hidden">
+<div class="h-full bg-primary w-0 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Course 2 -->
+<div class="flex gap-3">
+<div class="w-16 h-16 rounded bg-black/40 border border-white/10 flex-shrink-0 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-primary text-[32px] opacity-80">database</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h4 class="font-body-sm text-body-sm font-medium text-on-surface line-clamp-1">Database Design Mastery</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">schedule</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">8 hrs</span>
+</div>
+<div class="mt-2 h-1 bg-white/10 rounded-full w-full overflow-hidden">
+<div class="h-full bg-primary w-[30%] rounded-full shadow-[0_0_5px_#adc6ff]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (AI Mentor Widget) -->
+<div class="md:col-span-4 flex flex-col h-[calc(100vh-180px)] sticky top-24">
+<div class="ai-bubble-glass rounded-xl p-0 flex flex-col h-full overflow-hidden">
+<!-- AI Header -->
+<div class="p-4 border-b border-white/10 flex items-center gap-3 bg-black/20">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container/50 border border-secondary flex items-center justify-center relative z-10">
+<span class="material-symbols-outlined text-secondary">psychology</span>
+</div>
+<!-- Pulse Animation -->
+<div class="absolute inset-0 rounded-full bg-secondary/30 animate-ping"></div>
+</div>
+<div>
+<h3 class="font-title-md text-title-md font-semibold text-on-surface">AI Career Mentor</h3>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_5px_#4ade80]"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">Online &amp; Ready</span>
+</div>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 p-4 overflow-y-auto flex flex-col gap-4">
+<!-- Mentor Msg -->
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-6 h-6 rounded-full bg-secondary-container/30 border border-secondary/50 flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">psychology</span>
+</div>
+<div class="bg-black/30 border border-white/5 rounded-2xl rounded-tl-sm p-3">
+<p class="font-body-sm text-body-sm text-on-surface text-sm">Hello! I noticed you've been excelling in algorithm modules. Are you considering roles in Backend Engineering or Data Science?</p>
+</div>
+</div>
+<!-- User Msg -->
+<div class="flex gap-3 max-w-[85%] self-end flex-row-reverse">
+<img alt="User Avatar" class="w-6 h-6 rounded-full border border-primary/30 object-cover mt-1" data-alt="Small user avatar thumbnail for chat interface. EdTech dark mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIKrmJ45rYB8GnCamMS4gFr1ZWEOsAOzCC3k2iWaOyK-jEoa1KC6GoXdBbeESPBPkEkyDwR-TFUzbR5wj4cWueoLFEyRroE2Dr0tg9cT5AvMxgr_DvyiNk8wt2jEyxiiK4M_plEQntRwwJzyREaa17z1mLIn02PzBCEk1GjZ5ccVtp2nLFGSrHBpEtNZQHhh7jP6HjtccX4p1ukEIAeCkmI43BGO6A8VCv8cEnzyhxSoUzL9XGAlO64g"/>
+<div class="bg-primary-container/20 border border-primary/30 rounded-2xl rounded-tr-sm p-3">
+<p class="font-body-sm text-body-sm text-on-surface text-sm">I'm leaning towards Backend Engineering. What projects should I build?</p>
+</div>
+</div>
+<!-- Mentor Msg -->
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-6 h-6 rounded-full bg-secondary-container/30 border border-secondary/50 flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">psychology</span>
+</div>
+<div class="bg-black/30 border border-white/5 rounded-2xl rounded-tl-sm p-3">
+<p class="font-body-sm text-body-sm text-on-surface text-sm mb-2">Great choice! For backend, consider building:</p>
+<ul class="list-disc pl-4 space-y-1 font-body-sm text-body-sm text-on-surface-variant text-sm">
+<li>A RESTful API with authentication (e.g., Node/Express or Django).</li>
+<li>A URL shortener (tests DB design and caching).</li>
+<li>A real-time chat app using WebSockets.</li>
+</ul>
+<div class="mt-3 flex gap-2">
+<button class="px-2 py-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-xs font-label-caps text-primary transition-colors">Show Tutorials</button>
+<button class="px-2 py-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-xs font-label-caps text-tertiary transition-colors">Update Roadmap</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-3 border-t border-white/10 bg-black/20">
+<div class="relative flex items-center">
+<input class="w-full bg-black/40 border border-white/10 rounded-full py-2 pl-4 pr-10 text-body-sm text-on-surface placeholder-on-surface-variant focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50 transition-all" placeholder="Ask about interviews, skills..." type="text"/>
+<button class="absolute right-2 w-8 h-8 rounded-full bg-secondary/20 hover:bg-secondary/40 text-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Ravi Sir English Classes</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="Asset/channel logo-2.png" />
+    <link rel="apple-touch-icon" href="Asset/channel logo-2.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="login-page">
+      <section class="login-panel">
+        <h1>Login with WhatsApp OTP</h1>
+        <p>Enter your mobile number and receive a secure one-time password via WhatsApp. This page stores your session locally for demo login flow.</p>
+
+        <div class="login-info" id="loginInfo">
+          <strong>How it works:</strong>
+          <p>1. Enter your phone number.</p>
+          <p>2. Send request via WhatsApp.</p>
+          <p>3. Enter the OTP and login securely.</p>
+        </div>
+
+        <div id="phoneStep">
+          <div class="form-group">
+            <label for="phoneInput">Mobile Number</label>
+            <input id="phoneInput" type="tel" placeholder="Enter 10-digit mobile number" maxlength="10" />
+          </div>
+          <div class="login-actions">
+            <button id="sendOtpBtn" class="btn btn-primary">Send WhatsApp OTP</button>
+            <a id="whatsappLink" class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">Open WhatsApp</a>
+          </div>
+        </div>
+
+        <div id="otpStep" style="display:none;">
+          <div class="form-group">
+            <label for="otpInput">Enter OTP</label>
+            <input id="otpInput" type="text" placeholder="Enter 6-digit OTP" maxlength="6" />
+          </div>
+          <div class="login-actions">
+            <button id="verifyOtpBtn" class="btn btn-primary">Verify OTP</button>
+            <button id="resendOtpBtn" class="btn btn-secondary">Resend OTP</button>
+          </div>
+        </div>
+
+        <div class="login-footer" id="statusMessage"></div>
+      </section>
+    </main>
+
+    <script src="login.js"></script>
+  </body>
+</html>

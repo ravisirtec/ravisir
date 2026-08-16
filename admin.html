@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { background: linear-gradient(135deg, #f8fafc, #eff6ff); min-height: 100vh; }
+    .card { border: none; border-radius: 1rem; box-shadow: 0 20px 50px rgba(15,23,42,.08); }
+    .btn-primary { background: linear-gradient(135deg, #2563eb, #14b8a6); border: none; }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card p-4">
+          <h2 class="mb-3">Admin Login</h2>
+          <form id="adminLoginForm">
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input class="form-control" id="adminEmail" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input class="form-control" type="password" id="adminPassword" required />
+            </div>
+            <button class="btn btn-primary">Login</button>
+          </form>
+          <div class="mt-3" id="adminMessage"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card p-4">
+          <h2 class="mb-3">PDF Import</h2>
+          <form id="pdfUploadForm" enctype="multipart/form-data">
+            <input class="form-control mb-3" type="file" name="pdf" accept="application/pdf" required />
+            <button class="btn btn-primary">Import PDF</button>
+          </form>
+          <div class="mt-3" id="uploadMessage"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card p-4 mt-4">
+      <h3 class="mb-3">Build English Sets</h3>
+      <button class="btn btn-primary" id="buildSetBtn">Create Sets 1–15</button>
+      <div class="mt-3" id="setMessage"></div>
+    </div>
+  </div>
+
+  <script>
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const pdfUploadForm = document.getElementById('pdfUploadForm');
+
+    adminLoginForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('adminEmail').value;
+      const password = document.getElementById('adminPassword').value;
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const payload = await response.json();
+      document.getElementById('adminMessage').textContent = payload.success ? 'Logged in successfully.' : payload.message || 'Login failed';
+      if (payload.success) localStorage.setItem('adminToken', payload.token);
+    });
+
+    pdfUploadForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(pdfUploadForm);
+      const response = await fetch('/api/admin/upload-pdf', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${localStorage.getItem('adminToken') || ''}` },
+        body: formData
+      });
+      const payload = await response.json();
+      document.getElementById('uploadMessage').textContent = payload.message || 'Imported';
+    });
+
+    document.getElementById('buildSetBtn').addEventListener('click', async () => {
+      const response = await fetch('/api/admin/sets/build', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('adminToken') || ''}`
+        },
+        body: JSON.stringify({})
+      });
+      const payload = await response.json();
+      document.getElementById('setMessage').textContent = payload.success ? `Built sets ${payload.builtSets.join(', ')}` : payload.message || 'Set build failed';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Class 11 Batch | Ravi Sir English Classes</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="Asset/channel logo-2.png" />
+    <link rel="apple-touch-icon" href="Asset/channel logo-2.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --primary: #2E6BFF;
+        --accent: #FF4FA3;
+        --bg: #F7F9FF;
+        --surface: #FFFFFF;
+        --muted: #5B6B85;
+        --border: rgba(46, 107, 255, 0.14);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: linear-gradient(180deg, #f5f8ff 0%, #eef4ff 100%);
+        color: #142033;
+      }
+
+      a { text-decoration: none; color: inherit; }
+      .page-shell { width: min(100%, 1600px); max-width: 1600px; margin: 0 auto; padding: 28px 20px 48px; }
+      .navbar { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 18px 0; }
+      .brand { display: flex; align-items: center; gap: 14px; }
+      .brand-icon { width: 52px; height: 52px; border-radius: 18px; background: radial-gradient(circle at top left, var(--primary), var(--accent)); display: grid; place-items: center; color: white; font-weight: 800; font-size: 1.1rem; }
+      .brand-text { display: grid; gap: 3px; }
+      .brand-title { font-size: 1rem; font-weight: 800; letter-spacing: 0.01em; }
+      .brand-subtitle { font-size: 0.82rem; color: var(--muted); }
+
+      .hero-card { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; padding: 34px; background: var(--surface); border: 1px solid rgba(46,107,255,0.12); border-radius: 32px; box-shadow: 0 26px 60px rgba(46, 107, 255, 0.08); }
+      .hero-eyebrow { display: inline-flex; padding: 0.7rem 1rem; border-radius: 999px; background: rgba(46, 107, 255, 0.09); color: var(--primary); font-weight: 700; font-size: 0.84rem; letter-spacing: 0.15em; text-transform: uppercase; }
+      .hero-title { margin: 20px 0 18px; font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: 0.95; max-width: 600px; }
+      .hero-title span { background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      .hero-copy { margin: 0; max-width: 620px; line-height: 1.85; color: var(--muted); font-size: 1rem; }
+      .hero-actions { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease; }
+      .btn-primary { background: linear-gradient(90deg, var(--primary), var(--accent)) !important; color: white !important; padding: 14px 24px; box-shadow: 0 16px 32px rgba(46, 107, 255, 0.28) !important; }
+      .btn-secondary { background: linear-gradient(90deg, rgba(255,79,163,1), rgba(46,107,255,1)) !important; color: white !important; padding: 14px 24px; border: 1px solid transparent; box-shadow: 0 18px 40px rgba(46, 107, 255, 0.18) !important; text-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+      .btn-secondary:hover { background: linear-gradient(90deg, rgba(46,107,255,1), rgba(255,79,163,1)) !important; }
+      .btn:hover { transform: translateY(-2px); }
+      .hero-actions .btn-secondary { opacity: 1 !important; }
+      .hero-stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+      .stat-card { padding: 18px 20px; border-radius: 22px; background: #f7f9ff; border: 1px solid rgba(46,107,255,0.1); }
+      .stat-card strong { display: block; font-size: 1.8rem; margin-bottom: 6px; color: var(--primary); }
+      .stat-card span { color: var(--muted); font-size: 0.95rem; }
+
+      .hero-graphic { position: relative; min-height: 520px; border-radius: 28px; background: radial-gradient(circle at top right, rgba(46, 107, 255, 0.16), transparent 45%), radial-gradient(circle at bottom left, rgba(255, 79, 163, 0.16), transparent 40%); display: grid; place-items: center; padding: 24px; }
+      .hero-poster { width: 100%; height: auto; max-width: 740px; border-radius: 28px; object-fit: cover; box-shadow: 0 24px 80px rgba(15, 23, 42, 0.15); }
+      .hero-graphic-card { width: min(100%, 420px); padding: 28px; background: rgba(255,255,255,0.92); border-radius: 28px; box-shadow: 0 18px 45px rgba(15,23,42,0.08); backdrop-filter: blur(8px); position: absolute; bottom: 24px; right: 24px; }
+      .hero-graphic-title { font-size: 1.3rem; margin: 0 0 14px; color: #142033; }
+      .hero-graphic-text { color: var(--muted); line-height: 1.8; }
+
+      .tracker-panel { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+      .tracker-card { background: var(--surface); border: 1px solid rgba(46,107,255,0.12); border-radius: 28px; box-shadow: 0 18px 40px rgba(46,107,255,0.08); padding: 28px; }
+      .tracker-title { margin: 0 0 16px; font-size: 1.35rem; }
+      .tracker-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+      .tracker-item { display: grid; gap: 6px; padding: 16px; background: #f6faff; border-radius: 20px; border: 1px solid rgba(46,107,255,0.12); }
+      .tracker-item strong { display: block; color: #142033; font-size: 1rem; }
+      .tracker-meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 0.92rem; }
+      .status-pill { display: inline-flex; align-items: center; gap: 8px; padding: 0.55rem 0.85rem; border-radius: 999px; font-weight: 700; font-size: 0.82rem; }
+      .status-soon { background: rgba(255,79,163,0.14); color: #c21f6a; }
+      .status-ready { background: rgba(46,107,255,0.12); color: #2e6bff; }
+
+      .modules-grid { display: grid; gap: 18px; margin-top: 22px; }
+      .module-card { background: var(--surface); border-radius: 24px; padding: 24px; box-shadow: 0 18px 36px rgba(15,23,42,0.06); border: 1px solid rgba(46,107,255,0.08); }
+      .module-card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+      .module-card p { margin: 0; color: var(--muted); line-height: 1.8; }
+      .tag { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 0.8rem; border-radius: 999px; background: rgba(46,107,255,0.12); color: var(--primary); font-size: 0.82rem; font-weight: 700; }
+
+      .feature-section { margin-top: 42px; padding: 34px; background: linear-gradient(180deg, rgba(46,107,255,0.08), rgba(255,255,255,0.92)); border-radius: 32px; }
+      .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+      .feature-card { background: var(--surface); border-radius: 24px; padding: 24px; box-shadow: 0 18px 36px rgba(15,23,42,0.06); border: 1px solid rgba(46,107,255,0.08); text-align: center; }
+      .feature-icon { font-size: 2.8rem; margin-bottom: 18px; }
+      .feature-card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+      .feature-card p { margin: 0 0 18px; color: var(--muted); line-height: 1.75; }
+
+      .page-footer { margin-top: 42px; text-align: center; }
+      .page-footer p { color: var(--muted); line-height: 1.8; max-width: 720px; margin: 0 auto 18px; }
+
+      @media (min-width: 1200px) {
+        .page-shell { width: min(100%, 1800px); max-width: 1800px; }
+        .hero-card { gap: 42px; padding: 40px; }
+        .hero-title { font-size: clamp(3rem, 3vw, 5rem); }
+        .hero-copy { font-size: 1.05rem; }
+        .hero-stat-grid { gap: 18px; }
+        .tracker-panel { gap: 30px; }
+        .tracker-card { padding: 34px; }
+        .feature-section { padding: 40px; }
+        .feature-grid { gap: 24px; }
+      }
+
+      @media (min-width: 1600px) {
+        .page-shell { width: min(100%, 2000px); max-width: 2000px; }
+        .hero-card { gap: 52px; padding: 48px; }
+        .hero-title { font-size: clamp(3.4rem, 2.8vw, 5.8rem); }
+        .hero-copy { font-size: 1.1rem; max-width: 760px; }
+        .hero-actions { gap: 28px; }
+        .hero-stat-grid { gap: 24px; }
+        .tracker-card { padding: 40px; }
+        .feature-section { padding: 48px; }
+        .feature-grid { gap: 28px; }
+      }
+
+      @media (max-width: 980px) {
+        .hero-card { grid-template-columns: 1fr; }
+        .hero-graphic { min-height: auto; padding: 18px; }
+        .hero-poster { max-width: 100%; }
+        .hero-graphic-card { position: relative; bottom: auto; right: auto; width: 100%; margin-top: 22px; }
+        .tracker-panel { grid-template-columns: 1fr; }
+        .feature-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 980px) {
+        .hero-card { grid-template-columns: 1fr; }
+        .hero-graphic { min-height: auto; padding: 18px; }
+        .hero-poster { max-width: 100%; }
+        .hero-graphic-card { position: relative; bottom: auto; right: auto; width: 100%; margin-top: 22px; }
+        .hero-stat-grid { grid-template-columns: 1fr; }
+        .hero-stat-grid .stat-card { width: 100%; }
+        .tracker-panel { grid-template-columns: 1fr; }
+        .feature-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 680px) {
+        .page-shell { padding: 20px 16px 32px; }
+        .hero-card { padding: 24px; gap: 20px; }
+        .hero-title { font-size: 2.4rem; }
+        .hero-copy { font-size: 0.98rem; max-width: 100%; }
+        .hero-actions { flex-direction: column; align-items: stretch; }
+        .hero-actions .btn { width: 100%; }
+        .hero-stat-grid { grid-template-columns: 1fr; gap: 14px; }
+        .hero-stat-grid .stat-card { padding: 16px 18px; }
+        .hero-poster { max-width: 100%; border-radius: 24px; }
+        .hero-graphic-card { padding: 22px; margin-top: 18px; }
+        .tracker-panel { gap: 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="top">
+      <div class="page-shell">
+        <header class="navbar">
+          <a href="index.html#top" class="brand">
+            <img
+              src="Asset/channel logo-2.png"
+              alt="Ravi Sir Target English Classes logo"
+              class="brand-logo"
+            />
+            <span class="brand-text">
+              Target English Classes <small>Ravi Sir</small>
+            </span>
+          </a>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="nav-links">
+            <a href="index.html#classes">Classes</a>
+            <a href="index.html#videos">Videos</a>
+            <a href="index.html#batches">Batches</a>
+            <a href="index.html#materials">Study Material</a>
+            <a href="index.html#audio">Audio Lessons</a>
+            <a href="index.html#chat">AI Chat</a>
+            <a href="login.html" class="btn btn-secondary small btn-glow nav-login">Login</a>
+          </nav>
+        </header>
+
+        <section class="hero-card" id="classes">
+        <div>
+          <div class="hero-eyebrow">Bihar Board Class 11</div>
+          <h1 class="hero-title">Master the <span>English</span> foundation for Class 11 success.</h1>
+          <p class="hero-copy">A structured batch designed for Bihar Board students with chapter-based lessons, practice trackers, audio support, and downloadable revision notes.</p>
+          <div class="hero-actions">
+            <a href="#batches" class="btn btn-primary">Join Class 11 Batch</a>
+            <a href="class11-Video.html" class="btn btn-secondary">Watch Video Lessons</a>
+            <a href="#feature" class="btn btn-secondary">Download PDF</a>
+          </div>
+
+          <div class="hero-stat-grid">
+            <div class="stat-card">
+              <strong>12</strong>
+              <span>Course Modules</span>
+            </div>
+            <div class="stat-card">
+              <strong>100+</strong>
+              <span>Practice Questions</span>
+            </div>
+            <div class="stat-card">
+              <strong>Video</strong>
+              <span>Lessons Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-graphic">
+          <img
+            src="Asset/CLASS_11th _NIRMAN_BATCH_poster.png"
+            alt="Class 11th Nirman Batch poster"
+            class="hero-poster"
+          />
+         
+      </section>
+
+      <section class="section section-grid" id="videos">
+        <div class="section-heading">
+          <p class="eyebrow">Video Lessons</p>
+          <h2>Watch short lessons made for Class 11 success.</h2>
+          <p>Every topic includes clear explanation videos and chapter examples to build confidence.</p>
+        </div>
+      
+      </section>
+
+      <section class="tracker-panel" id="batches">
+        <div class="tracker-card">
+          <h2 class="tracker-title">Prose Master Tracker</h2>
+          <ul class="tracker-list">
+            <li class="tracker-item">
+              <strong>Animals in Prison</strong>
+              <div class="tracker-meta"><span>Author: Jawaharlal Nehru</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>Nalanda: Ancient Seat of Learning</strong>
+              <div class="tracker-meta"><span>Author: Dr. Rajendra Prasad</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>A Snake in the Grass</strong>
+              <div class="tracker-meta"><span>Author: R. K. Narayan</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>The Rule of the Road</strong>
+              <div class="tracker-meta"><span>Author: A. G. Gardiner</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>The Scientific Point of View</strong>
+              <div class="tracker-meta"><span>Author: J. B. S. Haldane</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>I Pass the Delhi Test</strong>
+              <div class="tracker-meta"><span>Author: S. M. Gavaskar</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tracker-card">
+          <h2 class="tracker-title">Poetry Master Tracker</h2>
+          <ul class="tracker-list">
+            <li class="tracker-item">
+              <strong>Where the Mind is without Fear</strong>
+              <div class="tracker-meta"><span>Poet: Rabindranath Tagore</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>The Marriage of True Minds</strong>
+              <div class="tracker-meta"><span>Poet: William Shakespeare</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>The Chimney Sweeper</strong>
+              <div class="tracker-meta"><span>Poet: William Blake</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>Stopping by Woods on a Snowy Evening</strong>
+              <div class="tracker-meta"><span>Poet: Robert Frost</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>The Lamentation of the Old Pensioner</strong>
+              <div class="tracker-meta"><span>Poet: W. B. Yeats</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+            <li class="tracker-item">
+              <strong>Three Years She Grew</strong>
+              <div class="tracker-meta"><span>Poet: William Wordsworth</span><span class="status-pill status-soon">Video Soon</span></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="module-card" id="materials">
+        <h2 class="tracker-title">Study Material</h2>
+        <div class="modules-grid">
+          <div class="module-card">
+            <span class="tag">Module 1</span>
+            <h3>Grammar Foundations</h3>
+            <p>Build a strong base in verbs, tenses, and sentence structure with board-friendly examples.</p>
+          </div>
+          <div class="module-card">
+            <span class="tag">Module 2</span>
+            <h3>Prose & Poetry</h3>
+            <p>Cover every chapter with guided summaries and practice questions for deep understanding.</p>
+          </div>
+          <div class="module-card">
+            <span class="tag">Module 3</span>
+            <h3>Writing Practice</h3>
+            <p>Learn letter writing, paragraph practice, and exam-style writing tasks.</p>
+          </div>
+          <div class="module-card">
+            <span class="tag">Module 4</span>
+            <h3>Revision Notes</h3>
+            <p>Download quick-reference PDFs to revise chapters faster and improve retention.</p>
+          </div>
+        </div>
+      </section>
+
+   
+
+      <section class="feature-section" id="feature">
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎥</div>
+            <h3>Video Lessons</h3>
+            <p>Short lesson videos are on their way for each chapter in the Class 11 syllabus.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3>PDF Notes</h3>
+            <p>Download chapter notes and practice sheets ready for quick exam revision.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Progress Tracker</h3>
+            <p>Stay organized with a course tracker showing video, note, and practice status.</p>
+          </div>
+        </div>
+      </section>
+
+   
+
+      <footer class="page-footer">
+        <p>This Class 11 batch page is built for Bihar Board students, using a fresh design system, new content, and the requested brand colors.</p>
+        <a href="class11-Video.html" class="btn btn-primary">Start Your Learning Plan</a>
+      </footer>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  </body>
+</html>

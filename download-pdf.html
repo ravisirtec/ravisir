@@ -1,0 +1,889 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Bihar Board PDF Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --bg: #f4f7ff;
+      --surface: #ffffff;
+      --surface-strong: #f8fbff;
+      --border: rgba(15, 23, 42, 0.08);
+      --text: #0f172a;
+      --muted: #64748b;
+      --blue: #2563eb;
+      --blue-soft: #ebf3ff;
+      --accent: #ec4899;
+      --radius: 24px;
+      --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 22%),
+                  radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.16), transparent 20%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    .page-shell {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+
+    header.site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 24px;
+      border-radius: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--blue);
+      font-size: 1.4rem;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    nav.site-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1 1 auto;
+    }
+
+    nav.site-nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav.site-nav a:hover,
+    nav.site-nav a.active {
+      color: var(--blue);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      min-width: 240px;
+      justify-content: flex-end;
+    }
+
+    .search-field {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .search-field input {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px 18px 14px 48px;
+      font-size: 0.95rem;
+      outline: none;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .search-field::before {
+      content: '🔍';
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      cursor: pointer;
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.18);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #1d4ed8;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .page-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .page-head .headline {
+      max-width: 760px;
+    }
+
+    .page-head h1 {
+      font-size: clamp(2.15rem, 3.5vw, 3.25rem);
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    .page-head p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 14px;
+      line-height: 1.8;
+    }
+
+    .class-toggle {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .class-toggle button {
+      border: none;
+      background: none;
+      padding: 12px 24px;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--muted);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .class-toggle button.active {
+      color: white;
+      background: var(--blue);
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar-card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+
+    .subject-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .subject-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #f8fbff;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .subject-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(37, 99, 235, 0.22);
+      background: white;
+    }
+
+    .subject-link .subject-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .subject-link .subject-name .folder {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--blue);
+      font-size: 1.2rem;
+    }
+
+    .subject-link .subject-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      max-width: 520px;
+    }
+
+    .subject-link .subject-action {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .sidebar-card .sidebar-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #f8fbff;
+      color: var(--text);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .sidebar-card .sidebar-item:hover,
+    .sidebar-card .sidebar-item.active {
+      background: white;
+      border-color: rgba(37, 99, 235, 0.18);
+    }
+
+    .sidebar-item strong {
+      font-weight: 700;
+    }
+
+    .more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    .content-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .content-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .content-header h2 {
+      margin: 0;
+      font-size: 1.85rem;
+    }
+
+    .folder-tree {
+      background: #f8fbff;
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      border-radius: 24px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
+    }
+
+    .folder-tree ul {
+      list-style: none;
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .folder-tree li {
+      position: relative;
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+
+    .folder-tree li::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      border-left: 2px solid rgba(37, 99, 235, 0.32);
+      border-bottom: 2px solid rgba(37, 99, 235, 0.32);
+      transform: rotate(-45deg);
+    }
+
+    .folder-tree .tree-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .folder-tree .tree-label span {
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--blue);
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+    }
+
+    .folder-tree .tree-file {
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .file-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .file-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 22px;
+      border-radius: 22px;
+      background: white;
+      border: 1px solid rgba(37, 99, 235, 0.08);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .file-row:hover {
+      transform: translateY(-1px);
+      border-color: rgba(37, 99, 235, 0.18);
+    }
+
+    .file-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .file-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--blue);
+      font-size: 1.5rem;
+    }
+
+    .file-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .file-text strong {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .file-text span {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .file-action {
+      font-size: 1.4rem;
+      color: var(--muted);
+    }
+
+    footer.site-footer {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1080px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .page-head {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      header.site-header {
+        padding: 18px;
+      }
+
+      .site-nav {
+        justify-content: center;
+      }
+
+      .header-actions {
+        justify-content: flex-end;
+      }
+
+      .search-field {
+        max-width: 100%;
+      }
+
+      .content-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .file-row {
+        grid-template-columns: 1fr;
+      }
+
+      .file-action {
+        justify-self: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="navbar">
+      <a href="index.html#top" class="brand">
+        <img src="Asset/channel logo-2.png" alt="Ravi Sir Target English Classes logo" class="brand-logo" />
+        <span class="brand-text">Target English Classes <small>Ravi Sir</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html#classes">Classes</a>
+        <a href="index.html#videos">Videos</a>
+        <a href="index.html#batches">Batches</a>
+        <a href="index.html#materials">Study Material</a>
+        <a href="index.html#audio">Audio Lessons</a>
+        <a href="index.html#chat">AI Chat</a>
+        <a href="login.html" class="btn btn-secondary small btn-glow nav-login">Login</a>
+      </nav>
+    </header>
+
+    <section class="page-head">
+      <div class="headline">
+        <h1>Download Bihar Board PDF Notes</h1>
+        <p>Download chapter-wise notes, solutions, MCQs and more study materials for Bihar Board.</p>
+      </div>
+      <div class="class-toggle" role="tablist" aria-label="Select class">
+        <button class="active" type="button" data-tab-target="class11">Class 11</button>
+        <button type="button" data-tab-target="class12">Class 12</button>
+      </div>
+    </section>
+
+    <div class="page-layout">
+      <aside class="sidebar">
+        <div class="sidebar-card tab-panel" data-tab-content="class11">
+          <h2>Class 11</h2>
+          <a class="sidebar-item active" href="#">
+            <span>English</span>
+            <span>8 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Hindi</span>
+            <span>7 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Physics</span>
+            <span>11 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Chemistry</span>
+            <span>10 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Mathematics</span>
+            <span>12 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Biology</span>
+            <span>9 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>History</span>
+            <span>8 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Geography</span>
+            <span>7 Chapters</span>
+          </a>
+          <a class="more-link" href="#">More Subjects →</a>
+        </div>
+
+        <div class="sidebar-card tab-panel hidden" data-tab-content="class12">
+          <h2>Class 12</h2>
+          <a class="sidebar-item" href="#">
+            <span>View All Subjects</span>
+            <span>25+</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>English</span>
+            <span>6 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Hindi</span>
+            <span>7 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Physics</span>
+            <span>12 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Chemistry</span>
+            <span>12 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Mathematics</span>
+            <span>10 Chapters</span>
+          </a>
+          <a class="sidebar-item" href="#">
+            <span>Biology</span>
+            <span>9 Chapters</span>
+          </a>
+        </div>
+      </aside>
+
+      <section class="content-card">
+        <div class="content-header">
+          <h2>Download PDF Notes by Subject</h2>
+          <button class="btn-primary">View All Subjects</button>
+        </div>
+
+        <div class="folder-tree tab-panel" data-tab-content="class11">
+          <ul>
+            <li>
+              <div class="tree-label"><span>📁</span> Class 11th</div>
+              <ul>
+                <li>
+                  <div class="tree-label"><span>📁</span> English</div>
+                  <ul>
+                    <li>
+                      <div class="tree-label"><span>📁</span> English Rainbow Part 1</div>
+                      <ul>
+                        <li>
+                          <div class="tree-label"><span>📁</span> Prose</div>
+                          <div class="tree-file">Notes, Solutions, MCQs, Important Questions, PDFs</div>
+                        </li>
+                        <li>
+                          <div class="tree-label"><span>📁</span> Poetry</div>
+                          <div class="tree-file">Notes, Solutions, MCQs, Important Questions, PDFs</div>
+                        </li>
+                        <li>
+                          <div class="tree-label"><span>📁</span> Read Think Enjoy</div>
+                          <div class="tree-file">Notes, Solutions, MCQs, Important Questions, PDFs</div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="tree-label"><span>📁</span> Rainbow Story of English</div>
+                      <div class="tree-file">Notes, Solutions, MCQs, PDFs</div>
+                    </li>
+                    <li>
+                      <div class="tree-label"><span>📁</span> English Grammar</div>
+                      <ul>
+                        <li><div class="tree-label"><span>📄</span> Parts of Speech</div></li>
+                        <li><div class="tree-label"><span>📄</span> Tense</div></li>
+                        <li><div class="tree-label"><span>📄</span> Voice</div></li>
+                        <li><div class="tree-label"><span>📄</span> Narration</div></li>
+                        <li><div class="tree-label"><span>📄</span> Modals</div></li>
+                        <li><div class="tree-label"><span>📄</span> Articles</div></li>
+                        <li><div class="tree-label"><span>📄</span> Preposition</div></li>
+                        <li><div class="tree-label"><span>📄</span> Vocabulary</div></li>
+                        <li><div class="tree-label"><span>📄</span> Practice Sets</div></li>
+                      </ul>
+                    </li>
+                    <li><div class="tree-label"><span>📄</span> Objective Questions</div></li>
+                    <li><div class="tree-label"><span>📄</span> Subjective Questions</div></li>
+                    <li><div class="tree-label"><span>📄</span> Previous Year Questions</div></li>
+                    <li><div class="tree-label"><span>📄</span> Model Papers</div></li>
+                    <li><div class="tree-label"><span>📄</span> Important Notes</div></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="file-list tab-panel" data-tab-content="class11">
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>English</strong>
+                <span>Notes, Solutions, MCQs, Grammar, Question Bank, Model Papers</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Hindi</strong>
+                <span>Notes, Solutions, MCQs, Important Questions, Model Papers</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Physics</strong>
+                <span>Notes, Solutions, Numericals, Formula, Question Bank</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Chemistry</strong>
+                <span>Notes, Solutions, MCQs, Important Questions</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Mathematics</strong>
+                <span>Notes, Solutions, MCQs, Formulas, Important Questions</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Biology</strong>
+                <span>Notes, Diagrams, MCQs, Important Questions</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Computer Science</strong>
+                <span>Notes, Programs, MCQs, Important Questions</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>More Subjects</strong>
+                <span>Political Science, Economics, Sociology, Psychology, etc.</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+        </div>
+
+        <div class="file-list tab-panel hidden" data-tab-content="class12">
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>English</strong>
+                <span>Notes, Solutions, MCQs, Writing, Model Papers</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Hindi</strong>
+                <span>Notes, Solutions, MCQs, Important Questions, Model Papers</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Physics</strong>
+                <span>Notes, Solutions, Numericals, Formula, Question Bank</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Chemistry</strong>
+                <span>Notes, Solutions, MCQs, Important Questions</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Mathematics</strong>
+                <span>Notes, Solutions, MCQs, Formulas</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Biology</strong>
+                <span>Notes, Diagrams, MCQs, Important Questions</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+
+          <a href="#" class="file-row">
+            <div class="file-meta">
+              <div class="file-icon">📁</div>
+              <div class="file-text">
+                <strong>Computer Science</strong>
+                <span>Notes, Programs, MCQs, Important Questions</span>
+              </div>
+            </div>
+            <div class="file-action">›</div>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <footer class="site-footer">© 2026 Bihar Board Notes. All Rights Reserved.</footer>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    const tabs = document.querySelectorAll('[data-tab-target]');
+    const panels = document.querySelectorAll('[data-tab-content]');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tabTarget;
+
+        tabs.forEach(btn => btn.classList.toggle('active', btn === tab));
+
+        panels.forEach(panel => {
+          panel.classList.toggle('hidden', panel.dataset.tabContent !== target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

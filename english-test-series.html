@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Mock Test | Bihar Board Class 12</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            color-scheme: light;
+            --primary: #2563eb;
+            --secondary: #14b8a6;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 25px 50px rgba(15, 23, 42, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 18px 48px;
+        }
+
+        .poster-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f4f7fb 100%);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .blob-top-right,
+        .blob-bottom-left {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .blob-top-right {
+            top: -120px;
+            right: -120px;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(37,99,235,0.14) 0%, rgba(255,255,255,0) 72%);
+        }
+
+        .blob-bottom-left {
+            bottom: -140px;
+            left: -120px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(20,184,166,0.14) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .poster-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 2.2rem 3rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img,
+        .board-logo {
+            width: auto;
+            height: 70px;
+            border-radius: 20px;
+            background: white;
+            padding: 0.75rem;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .header-text {
+            text-align: right;
+        }
+
+        .header-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--muted);
+            margin-top: 0.2rem;
+        }
+
+        .poster-content {
+            display: flex;
+            gap: 2rem;
+            padding: 0 3rem 3rem;
+            position: relative;
+            z-index: 1;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-left {
+            flex: 1 1 430px;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(37,99,235,0.08);
+            border: 1px solid rgba(37,99,235,0.16);
+            border-radius: 9999px;
+            padding: 0.8rem 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.08em;
+            font-size: 0.95rem;
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(3rem, 5vw, 4.8rem);
+            line-height: 0.95;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.04em;
+            color: var(--text);
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, #2563eb, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-quote {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(37,99,235,0.16);
+            border-radius: 28px;
+            padding: 1.5rem 1.6rem;
+            position: relative;
+            max-width: 730px;
+        }
+
+        .hero-quote-text {
+            margin: 0;
+            color: var(--text);
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            line-height: 1.05;
+            font-weight: 700;
+        }
+
+        .hero-copy {
+            max-width: 700px;
+            color: var(--muted);
+            line-height: 1.85;
+            font-size: 1.02rem;
+        }
+
+        .hero-badges {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 1rem 1rem;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(148,163,184,0.18);
+            box-shadow: 0 16px 40px rgba(15,23,42,0.06);
+        }
+
+        .hero-badge-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: rgba(37,99,235,0.08);
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .hero-right {
+            position: relative;
+            flex: 1 1 360px;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .hero-poster {
+            width: min(100%, 320px);
+            border-radius: 24px;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+            object-fit: cover;
+            border: 1px solid rgba(14, 165, 233, 0.18);
+        }
+
+        .hero-badge-text {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-glow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border-radius: 9999px;
+            padding: 0.95rem 1.75rem;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 18px 45px rgba(37,99,235,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 24px 60px rgba(37,99,235,0.32);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.92);
+            color: var(--text);
+            border: 1px solid rgba(37,99,235,0.18);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(37,99,235,0.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-glow {
+            background: linear-gradient(90deg, #2563eb, #14b8a6, #22c55e);
+            color: white;
+            box-shadow: 0 0 22px rgba(37,99,235,0.4), 0 0 36px rgba(20,184,166,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.45), transparent 32%);
+            opacity: 0.65;
+            pointer-events: none;
+            filter: blur(8px);
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(37,99,235,0.55), 0 0 48px rgba(20,184,166,0.35);
+        }
+
+        .hero-right {
+            flex: 1 1 360px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 420px;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle at center, rgba(37,99,235,0.18), transparent 45%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .offer-card {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            border-radius: 32px;
+            background: linear-gradient(180deg, #ffffff 0%, #eef6ff 100%);
+            box-shadow: 0 30px 80px rgba(15,23,42,0.14);
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .offer-card h3 {
+            margin: 0 0 1rem;
+            font-size: 1.75rem;
+            color: var(--text);
+        }
+
+        .offer-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-bar {
+            max-width: 5xl;
+            margin: -5rem auto 2rem;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .course-summary {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: 0 18px 45px rgba(15,23,42,0.08);
+            padding: 1.35rem 1.75rem;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .course-summary div {
+            text-align: center;
+        }
+
+        .course-summary p {
+            margin: 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+        }
+
+        .course-summary strong {
+            display: block;
+            margin-top: 0.45rem;
+            font-size: 1.65rem;
+        }
+
+        .section {
+            padding: 0 1rem 2.5rem;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(2rem, 2.5vw, 3.1rem);
+            line-height: 1.05;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin: 0.85rem auto 0;
+            max-width: 720px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .test-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 18px 45px rgba(15,23,42,0.08);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+        }
+
+        .test-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 60px rgba(15,23,42,0.12);
+        }
+
+        .test-card.highlighted {
+            border-color: var(--primary);
+            box-shadow: 0 24px 70px rgba(37,99,235,0.14);
+        }
+
+        .test-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(20,184,166,0.06));
+        }
+
+        .test-card.highlighted::before {
+            opacity: 1;
+        }
+
+        .test-card-header {
+            padding: 1.6rem 1.6rem 0.9rem;
+        }
+
+        .test-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .test-name {
+            margin: 1rem 0 0.75rem;
+            font-size: 1.35rem;
+            line-height: 1.25;
+        }
+
+        .test-details {
+            display: grid;
+            gap: 0.8rem;
+            padding: 0 1.6rem 1.4rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .test-details li {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .test-footer {
+            padding: 1.25rem 1.6rem 1.6rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag-pill {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .detail-panel {
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: 28px;
+            background: white;
+            border: 1px solid var(--border);
+            box-shadow: 0 18px 45px rgba(15,23,42,0.06);
+        }
+
+        .detail-panel h3 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .detail-item {
+            border-radius: 18px;
+            padding: 1.2rem 1.3rem;
+            background: #f8fbff;
+            border: 1px solid rgba(37,99,235,0.08);
+        }
+
+        .detail-item strong {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .highlight-stripe {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(37,99,235,0.15), rgba(20,184,166,0.15));
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1024px) {
+            .poster-header { padding: 1.75rem 2rem 1rem; }
+            .poster-content { padding: 0 2rem 2rem; }
+            .hero-badges { grid-template-columns: 1fr; }
+            .test-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .detail-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 720px) {
+            .poster-header { flex-direction: column; text-align: center; padding: 1.5rem 1.5rem 1rem; }
+            .header-text { text-align: center; }
+            .poster-content { flex-direction: column; padding: 0 1.25rem 1.5rem; }
+            .hero-right { min-height: 320px; }
+            .hero-title { font-size: 2.7rem; }
+            .hero-quote-text { font-size: 2rem; }
+            .hero-actions { justify-content: center; }
+            .test-grid { grid-template-columns: 1fr; }
+            .hero-poster { width: 100%; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <div class="poster-container">
+            <div class="blob-top-right"></div>
+            <div class="blob-bottom-left"></div>
+
+            <header class="poster-header">
+                <div class="logo-container">
+                    <img src="Asset/channel logo-2.png" alt="Target English Logo" class="logo-img" />
+                    <img src="Asset/BSEB Logo.jpg" alt="Bihar Board Logo" class="board-logo" />
+                </div>
+                <div class="header-text">
+                    <div class="header-title">PREMIUM MOCK TESTS</div>
+                    <div class="header-subtitle">Bihar Board Class 12 English</div>
+                </div>
+            </header>
+
+            <main class="poster-content">
+                <div class="hero-left">
+                    <span class="hero-tag">English Mock Test Series</span>
+                    <h1 class="hero-title">Bihar Board <span>Class 12</span> English Mock Tests</h1>
+                    <div class="hero-quote">
+                        <p class="hero-quote-text">Practice real exam-level tests and improve your score with clarity, confidence, and premium design.</p>
+                    </div>
+                    <p class="hero-copy">Designed with a clean, premium layout to give students a modern assessment experience. Start with the best mock test structure and stay ahead in board preparation.</p>
+
+                    <div class="hero-badges">
+                        <div class="hero-badge">
+                            <span class="hero-badge-icon">📝</span>
+                            <div class="hero-badge-text">100 Questions</div>
+                        </div>
+                        <div class="hero-badge">
+                            <span class="hero-badge-icon">⏱️</span>
+                            <div class="hero-badge-text">60 Minutes</div>
+                        </div>
+                        <div class="hero-badge">
+                            <span class="hero-badge-icon">✔️</span>
+                            <div class="hero-badge-text">No Negative Marking</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#testSets" class="btn-primary">Start Practice</a>
+                        <a href="#testSets" class="btn-secondary">View Tests</a>
+                        <a href="index.html" class="btn-secondary btn-glow">Back to Home</a>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <img src="Asset/mock test _english_set poster.jpg" alt="Mock Test English Set Poster" class="hero-poster" />
+                    <div class="hero-image-bg"></div>
+                    <div class="offer-card">
+                        <h3>Mock Test Set Selector</h3>
+                        <p>Choose any mock test set and launch the assessment interface instantly. The selected set is highlighted for easy navigation.</p>
+                        <div class="highlight-stripe">Fast | Premium | Exam-ready</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="course-bar">
+            <div class="course-summary">
+                <div>
+                    <p>Course Type</p>
+                    <strong>English Mock Tests</strong>
+                </div>
+                <div>
+                    <p>Duration</p>
+                    <strong>60 Minutes</strong>
+                </div>
+                <div>
+                    <p>Total Tests</p>
+                    <strong>15 Sets</strong>
+                </div>
+            </div>
+        </div>
+
+        <section id="testSets" class="section">
+            <div class="section-heading">
+                <h2>English Mock Test Sets</h2>
+                <p>Each set contains 100 questions, 100 marks, and a premium exam-style interface with progress, review, and timer support.</p>
+            </div>
+
+            <div class="test-grid" id="testGrid"></div>
+
+            <div class="detail-panel" id="selectedTestDetails">
+                <h3>Selected Test Details</h3>
+                <p class="hero-copy">Select a test card above or open this page with a query like <code>?set=1</code> to highlight the chosen mock test.</p>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <strong id="detailSubject">English</strong>
+                        Subject
+                    </div>
+                    <div class="detail-item">
+                        <strong id="detailClass">12</strong>
+                        Class
+                    </div>
+                    <div class="detail-item">
+                        <strong id="detailBoard">Bihar Board</strong>
+                        Board
+                    </div>
+                    <div class="detail-item">
+                        <strong id="detailQuestions">100</strong>
+                        Questions
+                    </div>
+                    <div class="detail-item">
+                        <strong id="detailMarks">100</strong>
+                        Marks
+                    </div>
+                    <div class="detail-item">
+                        <strong id="detailDuration">60 Minutes</strong>
+                        Duration
+                    </div>
+                    <div class="detail-item">
+                        <strong id="detailNegative">No</strong>
+                        Negative Marking
+                    </div>
+                    <div class="detail-item">
+                        <strong id="detailPassing">33%</strong>
+                        Passing Marks
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const testSets = [
+            { id: 1, name: 'English Mock Test 01', difficulty: 'Easy', progress: '0/100', highlight: 'Set 01' },
+            { id: 2, name: 'English Mock Test 02', difficulty: 'Easy', progress: '0/100', highlight: 'Set 02' },
+            { id: 3, name: 'English Mock Test 03', difficulty: 'Easy', progress: '0/100', highlight: 'Set 03' },
+            { id: 4, name: 'English Mock Test 04', difficulty: 'Medium', progress: '0/100', highlight: 'Set 04' },
+            { id: 5, name: 'English Mock Test 05', difficulty: 'Medium', progress: '0/100', highlight: 'Set 05' },
+            { id: 6, name: 'English Mock Test 06', difficulty: 'Medium', progress: '0/100', highlight: 'Set 06' },
+            { id: 7, name: 'English Mock Test 07', difficulty: 'Medium', progress: '0/100', highlight: 'Set 07' },
+            { id: 8, name: 'English Mock Test 08', difficulty: 'Hard', progress: '0/100', highlight: 'Set 08' },
+            { id: 9, name: 'English Mock Test 09', difficulty: 'Hard', progress: '0/100', highlight: 'Set 09' },
+            { id: 10, name: 'English Mock Test 10', difficulty: 'Hard', progress: '0/100', highlight: 'Set 10' },
+            { id: 11, name: 'English Mock Test 11', difficulty: 'Hard', progress: '0/100', highlight: 'Set 11' },
+            { id: 12, name: 'English Mock Test 12', difficulty: 'Hard', progress: '0/100', highlight: 'Set 12' },
+            { id: 13, name: 'English Mock Test 13', difficulty: 'Hard', progress: '0/100', highlight: 'Set 13' },
+            { id: 14, name: 'English Mock Test 14', difficulty: 'Hard', progress: '0/100', highlight: 'Set 14' },
+            { id: 15, name: 'English Mock Test 15', difficulty: 'Hard', progress: '0/100', highlight: 'Set 15' }
+        ];
+
+        const testGrid = document.getElementById('testGrid');
+        const selectedTestDetails = document.getElementById('selectedTestDetails');
+
+        function getQuerySet() {
+            const params = new URLSearchParams(window.location.search);
+            const setValue = parseInt(params.get('set'), 10);
+            return Number.isInteger(setValue) && setValue >= 1 && setValue <= testSets.length ? setValue : 1;
+        }
+
+        function renderTests(selectedId) {
+            testGrid.innerHTML = '';
+            testSets.forEach(test => {
+                const card = document.createElement('article');
+                card.className = 'test-card' + (test.id === selectedId ? ' highlighted' : '');
+                card.innerHTML = `
+                    <div class="test-card-header">
+                        <span class="test-badge">${test.highlight}</span>
+                        <h3 class="test-name">${test.name}</h3>
+                    </div>
+                    <ul class="test-details">
+                        <li><span>Questions</span><strong>100</strong></li>
+                        <li><span>Marks</span><strong>100</strong></li>
+                        <li><span>Duration</span><strong>60 min</strong></li>
+                        <li><span>Negative</span><strong>No</strong></li>
+                        <li><span>Difficulty</span><strong>${test.difficulty}</strong></li>
+                    </ul>
+                    <div class="test-footer">
+                        <span class="tag-pill">${test.progress} Progress</span>
+                        <a href="english-mock-test.html?set=${test.id}" class="btn btn-primary">Start Test</a>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    window.location.href = `english-mock-test.html?set=${test.id}`;
+                });
+                testGrid.appendChild(card);
+            });
+        }
+
+        function renderSelectedDetails(selectedId) {
+            const selected = testSets.find(test => test.id === selectedId) || testSets[0];
+            document.getElementById('detailSubject').textContent = selected.name.includes('English') ? 'English' : 'English';
+            document.getElementById('detailClass').textContent = '12';
+            document.getElementById('detailBoard').textContent = 'Bihar Board';
+            document.getElementById('detailQuestions').textContent = '100';
+            document.getElementById('detailMarks').textContent = '100';
+            document.getElementById('detailDuration').textContent = '60 Minutes';
+            document.getElementById('detailNegative').textContent = 'No';
+            document.getElementById('detailPassing').textContent = '33%';
+            selectedTestDetails.querySelector('p').textContent = `Selected mock test: ${selected.name}. Open or refresh with ?set=${selected.id} to keep this card highlighted.`;
+        }
+
+        const selectedSet = getQuerySet();
+        renderTests(selectedSet);
+        renderSelectedDetails(selectedSet);
+    </script>
+</body>
+</html>

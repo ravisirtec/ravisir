@@ -1,0 +1,801 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 Video Lessons - Bihar Board English</title>
+    <meta name="description" content="Class 12 Bihar Board English video lessons dashboard with chapter roadmap, notes, PDFs, revision, vocabulary, questions, and tests." />
+    <meta name="keywords" content="Bihar Board Class 12 English videos, Class 12 video lessons, BSEB English dashboard" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #374151;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .tab-content { transition: opacity 0.3s ease; }
+        button:focus { outline: 3px solid rgba(59,130,246,0.45); outline-offset: 2px; }
+        .btn { cursor: pointer; }
+        .premium-nav-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 768px) {
+            .premium-nav-grid {
+                grid-template-columns: 1.4fr 1fr 1fr;
+            }
+        }
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            border-radius: 9999px;
+            padding: 0.85rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 12px rgba(59,130,246,0.35);
+            text-decoration: none;
+        }
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(59,130,246,0.6), 0 0 40px rgba(59,130,246,0.35);
+        }
+        .nav-button:active {
+            transform: scale(0.98);
+            box-shadow: 0 0 24px rgba(59,130,246,0.65);
+        }
+        .nav-button:focus-visible {
+            outline: 3px solid rgba(59,130,246,0.45);
+            outline-offset: 2px;
+        }
+        .nav-button-back {
+            background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+            color: white;
+            border: 1px solid rgba(56,189,248,0.35);
+            box-shadow: 0 0 14px rgba(56,189,248,0.35);
+        }
+        .nav-button-secondary {
+            background: rgba(255,255,255,0.16);
+            color: #0f172a;
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(56,189,248,0.35);
+        }
+        .nav-button-primary {
+            background: linear-gradient(90deg, #22d3ee, #0ea5e9);
+            color: white;
+            border: 1px solid rgba(59,130,246,0.45);
+            box-shadow: 0 0 16px rgba(59,130,246,0.35);
+        }
+        .nav-button-primary:hover {
+            box-shadow: 0 0 25px rgba(59,130,246,0.7), 0 0 48px rgba(59,130,246,0.35);
+        }
+        .nav-button.disabled,
+        .nav-button[disabled] {
+            opacity: 0.45;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        .nav-icon {
+            display: inline-flex;
+            transition: transform 0.3s ease;
+        }
+        .nav-button:hover .nav-icon:first-child {
+            transform: translateX(-2px);
+        }
+        .nav-button:hover .nav-icon:last-child {
+            transform: translateX(2px);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="class12th.html" class="flex items-center text-gray-600 hover:text-blue-600 transition-colors" aria-label="Back to Class 12 page">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        <span class="font-medium">Back to Class 12</span>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="bg-gray-100 p-2 rounded-full hover:bg-gray-200" aria-label="Search available lessons">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                    <button type="button" class="btn btn-secondary small btn-glow nav-login" data-open-auth>Login</button>
+                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">C</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+        <div class="mb-6">
+            <h1 class="text-2xl font-semibold text-gray-900 mb-1">Class 12 Video Lessons (BSEB English)</h1>
+            <p class="text-sm text-gray-500 mb-4">Complete chapter roadmap with study cards for every Class 12 English lesson.</p>
+            <div class="flex flex-wrap gap-3 text-xs font-bold tracking-wide">
+                <span class="flex items-center gap-1.5 bg-rose-50 text-rose-600 px-2.5 py-1 rounded-md border border-rose-100">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    FREE CONTENT
+                </span>
+                <span class="flex items-center gap-1.5 bg-red-50 text-red-600 px-2.5 py-1 rounded-md border border-red-100">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                    PDFS
+                </span>
+                <span class="flex items-center gap-1.5 bg-pink-50 text-pink-600 px-2.5 py-1 rounded-md border border-pink-100">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                    VIDEOS
+                </span>
+            </div>
+        </div>
+
+        <div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar">
+            <div class="flex-shrink-0 w-64 h-36 rounded-lg overflow-hidden relative shadow-sm border border-gray-100 bg-white">
+                <img src="Asset/CLASS_11th _NIRMAN_BATCH_poster.png" alt="Class 12 Bihar Board English poster" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute left-4 bottom-4 text-white text-sm font-semibold leading-tight">
+                    <div class="text-yellow-300 text-xs uppercase tracking-[0.24em] mb-1">Bihar Board</div>
+                    <div class="text-lg font-bold">Class 12 English</div>
+                    <div class="text-sm text-emerald-200 mt-1">Complete Syllabus</div>
+                </div>
+            </div>
+            <div class="flex-shrink-0 w-64 h-36 bg-slate-800 rounded-lg overflow-hidden relative shadow-sm border border-gray-100 group cursor-pointer">
+                <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900">
+                    <span class="text-yellow-400 font-bold text-2xl opacity-80">Chapter Roadmap</span>
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-gray-900 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded">02:15:00</div>
+                <div class="absolute bottom-0 left-0 right-0 p-2 bg-white text-xs font-medium text-gray-700 truncate border-t">Class 12 Full Plan</div>
+            </div>
+            <div class="flex-shrink-0 w-64 h-36 bg-slate-800 rounded-lg overflow-hidden relative shadow-sm border border-gray-100 group cursor-pointer">
+                <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#2d3731]">
+                    <span class="text-yellow-400 font-bold text-xl px-4 text-center opacity-90">BSEB English<br>Chapter Cards</span>
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all flex items-center justify-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 text-gray-900 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded">03:05:00</div>
+                <div class="absolute bottom-0 left-0 right-0 p-2 bg-white text-xs font-medium text-gray-700 truncate border-t">Exam Focus</div>
+            </div>
+        </div>
+
+        <div class="border-b border-gray-200 mt-2 mb-6">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" role="tablist">
+                <li class="mr-6" role="presentation">
+                    <button id="overview-tab" class="inline-block pb-3 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 text-gray-500 uppercase tracking-wide transition-colors" type="button" role="tab" aria-controls="overview" aria-selected="false" onclick="switchTab('overview')">Overview</button>
+                </li>
+                <li class="mr-6" role="presentation">
+                    <button id="content-tab" class="inline-block pb-3 border-b-2 border-cyan-500 text-cyan-600 uppercase tracking-wide transition-colors" type="button" role="tab" aria-controls="content" aria-selected="true" onclick="switchTab('content')">Content</button>
+                </li>
+            </ul>
+        </div>
+
+        <div id="myTabContent" class="min-h-[400px]">
+            <div class="hidden tab-content" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h2 class="text-lg font-bold text-gray-800 mb-4">About This Course</h2>
+                    <p class="text-sm text-gray-600 mb-6 leading-relaxed">This dashboard maps every Class 12 Bihar Board English chapter into a clear learning workflow for videos, notes, PDFs, revision, word meanings, questions, tests, and results.</p>
+                    <div class="mb-4 text-sm text-gray-700">
+                        <p class="font-medium flex items-center gap-2 mb-2"><span class="text-yellow-500">✨</span> Your Study Plan:</p>
+                        <p class="flex items-center gap-2 mb-1"><span class="text-green-500">✅</span><span class="font-semibold">Streamlined chapters</span></p>
+                        <p class="ml-6 mb-2">All chapters from Poetry, Prose, Story of English, and Writing Section are included.</p>
+                        <button class="text-cyan-500 hover:text-cyan-600 font-medium">Read More</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block tab-content" id="content" role="tabpanel" aria-labelledby="content-tab">
+                <div id="folder-list-view" class="bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col divide-y divide-gray-100">
+                    <div class="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors cursor-pointer" onclick="openFolder('poetry')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-10 bg-blue-50 rounded flex items-center justify-center overflow-hidden border border-blue-100">
+                                <div class="w-full h-full bg-gradient-to-br from-blue-400 to-blue-300 relative">
+                                    <div class="absolute bottom-1 right-1 w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-0.5">
+                                <h3 class="font-medium text-gray-800 text-sm">Poetry</h3>
+                                <p class="text-[11px] text-gray-500">10 video(s), 10 file(s)</p>
+                                <span class="bg-pink-100 text-pink-700 text-[9px] font-bold px-1.5 py-0.5 rounded-sm w-max mt-0.5 tracking-wider">Core Syllabus</span>
+                            </div>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors cursor-pointer" onclick="openFolder('prose')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-10 bg-fuchsia-50 rounded flex items-center justify-center overflow-hidden border border-fuchsia-100">
+                                <div class="w-full h-full bg-gradient-to-br from-fuchsia-400 to-pink-300 relative">
+                                    <div class="absolute bottom-1 right-1 w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-0.5">
+                                <h3 class="font-medium text-gray-800 text-sm">Prose</h3>
+                                <p class="text-[11px] text-gray-500">11 video(s), 11 file(s)</p>
+                                <span class="bg-emerald-100 text-emerald-700 text-[9px] font-bold px-1.5 py-0.5 rounded-sm w-max mt-0.5 tracking-wider">Popular</span>
+                            </div>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors cursor-pointer" onclick="openFolder('story')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-10 bg-yellow-50 rounded flex items-center justify-center overflow-hidden border border-yellow-100">
+                                <div class="w-full h-full bg-gradient-to-br from-yellow-300 to-orange-300 relative">
+                                    <div class="absolute bottom-1 right-1 w-2 h-2 bg-blue-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-0.5">
+                                <h3 class="font-medium text-gray-800 text-sm">Story of English</h3>
+                                <p class="text-[11px] text-gray-500">3 video(s), 3 file(s)</p>
+                            </div>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors cursor-pointer" onclick="openFolder('writing')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-10 bg-cyan-50 rounded flex items-center justify-center overflow-hidden border border-cyan-100">
+                                <div class="w-full h-full bg-gradient-to-br from-cyan-400 to-sky-300 relative">
+                                    <div class="absolute bottom-1 right-1 w-2 h-2 bg-pink-400 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-0.5">
+                                <h3 class="font-medium text-gray-800 text-sm">Writing Section</h3>
+                                <p class="text-[11px] text-gray-500">4 video(s), 4 file(s)</p>
+                            </div>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+
+                <div id="inner-folder-view" class="hidden flex flex-col bg-white">
+                    <div class="flex items-center gap-3 py-3 mb-2 cursor-pointer hover:text-cyan-600 transition-colors w-max" onclick="closeFolder()">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        <h2 class="text-base font-bold text-gray-800" id="inner-folder-title">Choose a chapter</h2>
+                    </div>
+                    <div id="inner-folder-content" class="space-y-6">
+                        <div id="chapter-breadcrumb" class="text-sm text-gray-500"></div>
+                        <div id="chapter-list" class="border border-gray-200 rounded-lg shadow-sm overflow-hidden"></div>
+                        <div id="chapter-detail" class="hidden border border-gray-200 rounded-lg shadow-sm bg-white"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const chapterData = {
+            poetry: [
+                { id: 'poetry-01', number: '01', title: 'Sweetest Love I Do Not Go', author: 'John Donne', duration: '14:25', noteFile: 'BSEB_Class12_English/POETRY/01_Sweetest_Love_I_Do_Not_Goe_John_Donne.md' },
+                { id: 'poetry-02', number: '02', title: 'Song of Myself', author: 'Walt Whitman', duration: '17:10', noteFile: 'BSEB_Class12_English/POETRY/02_Song_of_Myself_Walt_Whitman.md' },
+                { id: 'poetry-03', number: '03', title: 'Now the Leaves Are Falling Fast', author: 'W.H. Auden', duration: '16:05', noteFile: 'BSEB_Class12_English/POETRY/03_Now_the_Leaves_Are_Falling_Fast_WH_Auden.md' },
+                { id: 'poetry-04', number: '04', title: 'Ode to Autumn', author: 'John Keats', duration: '15:35', noteFile: 'BSEB_Class12_English/POETRY/04_Ode_to_Autumn_John_Keats.md' },
+                { id: 'poetry-05', number: '05', title: 'An Epitaph', author: 'Walter de la Mare', duration: '14:55', noteFile: 'BSEB_Class12_English/POETRY/05_An_Epitaph_Walter_de_la_Mare.md' },
+                { id: 'poetry-06', number: '06', title: 'The Soldier', author: 'Rupert Brooke', duration: '13:45', noteFile: 'BSEB_Class12_English/POETRY/06_The_Soldier_Rupert_Brooke.md' },
+                { id: 'poetry-07', number: '07', title: 'Macavity The Mystery Cat', author: 'T.S. Eliot', duration: '16:50', noteFile: 'BSEB_Class12_English/POETRY/07_Macavity_The_Mystery_Cat_TS_Eliot.md' },
+                { id: 'poetry-08', number: '08', title: 'Fire Hymn', author: 'Keki N Daruwalla', duration: '15:20', noteFile: 'BSEB_Class12_English/POETRY/08_Fire_Hymn_Keki_N_Daruwalla.md' },
+                { id: 'poetry-09', number: '09', title: 'Snake', author: 'D.H. Lawrence', duration: '15:40', noteFile: 'BSEB_Class12_English/POETRY/09_Snake_DH_Lawrence.md' },
+                { id: 'poetry-10', number: '10', title: 'My Grandmother\'s House', author: 'Kamala Das', duration: '16:15', noteFile: 'BSEB_Class12_English/POETRY/10_My_Grandmothers_House_Kamala_Das.md' }
+            ],
+            prose: [
+                { id: 'prose-01', number: '01', title: 'Indian Civilization and Culture', author: 'Mahatma Gandhi', duration: '18:25', noteFile: 'BSEB_Class12_English/PROSE/01_Indian_Civilization_and_Culture_Mahatma_Gandhi.md' },
+                { id: 'prose-02', number: '02', title: 'Bharat is My Home', author: 'Dr Zakir Hussain', duration: '17:45', noteFile: 'BSEB_Class12_English/PROSE/02_Bharat_is_My_Home_Dr_Zakir_Hussain.md' },
+                { id: 'prose-03', number: '03', title: 'A Pinch of Snuff', author: 'Manohar Malgaonkar', duration: '18:05', noteFile: 'BSEB_Class12_English/PROSE/03_A_Pinch_of_Snuff_Manohar_Malgaonkar.md' },
+                { id: 'prose-04', number: '04', title: 'I Have a Dream', author: 'Martin Luther King Jr', duration: '19:20', noteFile: 'BSEB_Class12_English/PROSE/04_I_Have_a_Dream_Martin_Luther_King_Jr.md' },
+                { id: 'prose-05', number: '05', title: 'Ideas That Have Helped Mankind', author: 'Bertrand Russell', duration: '16:50', noteFile: 'BSEB_Class12_English/PROSE/05_Ideas_That_Have_Helped_Mankind_Bertrand_Russell.md' },
+                { id: 'prose-06', number: '06', title: 'The Artist', author: 'Shiga Naoya', duration: '17:15', noteFile: 'BSEB_Class12_English/PROSE/06_The_Artist_Shiga_Naoya.md' },
+                { id: 'prose-07', number: '07', title: 'A Child is Born', author: 'Germaine Greer', duration: '16:30', noteFile: 'BSEB_Class12_English/PROSE/07_A_Child_is_Born_Germaine_Greer.md' },
+                { id: 'prose-08', number: '08', title: 'How Free is the Press', author: 'Dorothy L Sayers', duration: '18:00', noteFile: 'BSEB_Class12_English/PROSE/08_How_Free_is_the_Press_Dorothy_L_Sayers.md' },
+                { id: 'prose-09', number: '09', title: 'The Earth', author: 'H.E. Bates', duration: '15:55', noteFile: 'BSEB_Class12_English/PROSE/09_The_Earth_HE_Bates.md' },
+                { id: 'prose-10', number: '10', title: 'India Through a Traveller\'s Eyes', author: 'Pearl S Buck', duration: '17:40', noteFile: 'BSEB_Class12_English/PROSE/10_India_Through_a_Travellers_Eyes_Pearl_S_Buck.md' },
+                { id: 'prose-11', number: '11', title: 'A Marriage Proposal', author: 'Anton Chekhov', duration: '16:10', noteFile: 'BSEB_Class12_English/PROSE/11_A_Marriage_Proposal_Anton_Chekhov.md' }
+            ],
+            story: [
+                { id: 'story-01', number: '01', title: 'Overview of Old, Middle and Modern English', author: 'Course Text', duration: '14:20', noteFile: 'BSEB_Class12_English/Story_of_English/01_Overview_Old_Middle_Modern_English.md' },
+                { id: 'story-02', number: '02', title: 'English as a World Language', author: 'Course Text', duration: '13:55', noteFile: 'BSEB_Class12_English/Story_of_English/02_English_as_a_World_Language.md' },
+                { id: 'story-03', number: '03', title: 'Indian English and Writers', author: 'Course Text', duration: '15:10', noteFile: 'BSEB_Class12_English/Story_of_English/03_Indian_English_and_Writers.md' }
+            ],
+            writing: [
+                { id: 'writing-01', number: '01', title: 'Essay Writing', author: 'Writing Skills', duration: '16:30', noteFile: 'BSEB_Class12_English/Writing_Section/Essay_Writing_Template.md' },
+                { id: 'writing-02', number: '02', title: 'Letter & Application', author: 'Writing Skills', duration: '15:20', noteFile: 'BSEB_Class12_English/Writing_Section/Letter_and_Application_Formats.md' },
+                { id: 'writing-03', number: '03', title: 'Line Explanation', author: 'Writing Skills', duration: '14:45', noteFile: 'BSEB_Class12_English/Writing_Section/Line_Explanations_Templates.md' },
+                { id: 'writing-04', number: '04', title: 'Precis & Passage Comprehension', author: 'Writing Skills', duration: '17:05', noteFile: 'BSEB_Class12_English/Writing_Section/Precis_and_Passage_Comprehension.md' }
+            ]
+        };
+
+        const folderLabels = {
+            poetry: 'Poetry',
+            prose: 'Prose',
+            story: 'Story of English',
+            writing: 'Writing Section'
+        };
+
+        const folderShortLabels = {
+            poetry: 'Poetry',
+            prose: 'Prose',
+            story: 'Story',
+            writing: 'Writing'
+        };
+
+        let currentFolder = null;
+        let currentChapter = null;
+        let currentChapterIndex = -1;
+        let currentResourceState = {};
+        let currentTestResult = null;
+
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                subject: params.get('subject'),
+                chapter: params.get('chapter')
+            };
+        }
+
+        function updateUrl(folder, chapter, replace = false) {
+            const params = new URLSearchParams();
+            if (folder) params.set('subject', folder);
+            if (chapter) params.set('chapter', String(chapter).padStart(2, '0'));
+            const url = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+            if (replace) window.history.replaceState(null, '', url);
+            else window.history.pushState(null, '', url);
+        }
+
+        function switchTab(tabName) {
+            const overviewBtn = document.getElementById('overview-tab');
+            const contentBtn = document.getElementById('content-tab');
+            const overviewPanel = document.getElementById('overview');
+            const contentPanel = document.getElementById('content');
+            if (tabName === 'overview') {
+                overviewBtn.classList.remove('border-transparent', 'text-gray-500');
+                overviewBtn.classList.add('border-cyan-500', 'text-cyan-600');
+                contentBtn.classList.remove('border-cyan-500', 'text-cyan-600');
+                contentBtn.classList.add('border-transparent', 'text-gray-500');
+                overviewPanel.classList.remove('hidden');
+                overviewPanel.classList.add('block');
+                contentPanel.classList.remove('block');
+                contentPanel.classList.add('hidden');
+            } else {
+                contentBtn.classList.remove('border-transparent', 'text-gray-500');
+                contentBtn.classList.add('border-cyan-500', 'text-cyan-600');
+                overviewBtn.classList.remove('border-cyan-500', 'text-cyan-600');
+                overviewBtn.classList.add('border-transparent', 'text-gray-500');
+                contentPanel.classList.remove('hidden');
+                contentPanel.classList.add('block');
+                overviewPanel.classList.remove('block');
+                overviewPanel.classList.add('hidden');
+            }
+        }
+
+        function openFolder(folderId, replaceHistory = false) {
+            currentFolder = folderId;
+            currentTestResult = null;
+            currentChapterIndex = -1;
+            const listView = document.getElementById('folder-list-view');
+            const innerView = document.getElementById('inner-folder-view');
+            const title = document.getElementById('inner-folder-title');
+            const breadcrumb = document.getElementById('chapter-breadcrumb');
+            title.innerText = `${folderLabels[folderId]} Chapters`;
+            breadcrumb.innerText = `Class 12 / ${folderLabels[folderId]}`;
+            showChapterList(folderId);
+            listView.classList.add('hidden');
+            innerView.classList.remove('hidden');
+            document.getElementById('chapter-detail').classList.add('hidden');
+            document.getElementById('chapter-list').classList.remove('hidden');
+            updateUrl(folderId, null, replaceHistory);
+        }
+
+        function closeFolder() {
+            currentFolder = null;
+            currentChapter = null;
+            currentChapterIndex = -1;
+            currentResourceState = {};
+            currentTestResult = null;
+            document.getElementById('folder-list-view').classList.remove('hidden');
+            document.getElementById('inner-folder-view').classList.add('hidden');
+            document.getElementById('chapter-list').classList.add('hidden');
+            document.getElementById('chapter-detail').classList.add('hidden');
+            updateUrl(null, null, true);
+        }
+
+        function initFromUrl() {
+            const { subject, chapter } = getQueryParams();
+            if (subject && chapterData[subject]) {
+                currentFolder = subject;
+                currentTestResult = null;
+                const listView = document.getElementById('folder-list-view');
+                const innerView = document.getElementById('inner-folder-view');
+                const title = document.getElementById('inner-folder-title');
+                title.innerText = `${folderLabels[subject] || 'Chapter'} Chapters`;
+                listView.classList.add('hidden');
+                innerView.classList.remove('hidden');
+                showChapterList(subject);
+                if (chapter) {
+                    openChapter(`${subject}-${String(chapter).padStart(2, '0')}`, false, true);
+                } else {
+                    document.getElementById('chapter-detail').classList.add('hidden');
+                    document.getElementById('chapter-list').classList.remove('hidden');
+                }
+            } else {
+                closeFolder();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', initFromUrl);
+        window.addEventListener('popstate', initFromUrl);
+
+        function showChapterList(folderId) {
+            const container = document.getElementById('chapter-list');
+            const chapters = chapterData[folderId] || [];
+            container.innerHTML = chapters.map((chapter, index) => `
+                <button type="button" class="w-full text-left p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors ${index === 0 ? 'bg-slate-50' : ''}" onclick="openChapter('${chapter.id}')">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-cyan-50 text-cyan-700 font-bold text-sm">${chapter.number}</div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-gray-800 text-sm truncate">${chapter.title}</h3>
+                        <p class="text-[11px] text-gray-500 mt-1 truncate">${chapter.author} · ${chapter.duration}</p>
+                    </div>
+                    <span class="text-[11px] text-slate-500 font-semibold">Open</span>
+                </button>
+            `).join('');
+        }
+
+        function openChapter(chapterId, pushHistory = true, replaceHistory = false) {
+            if (!currentFolder) return;
+            const chapters = chapterData[currentFolder] || [];
+            const chapter = chapters.find((item) => item.id === chapterId);
+            if (!chapter) return;
+            currentChapter = chapter;
+            currentChapterIndex = chapters.findIndex((item) => item.id === chapterId);
+            currentResourceState = {};
+            currentTestResult = null;
+            document.getElementById('chapter-list').classList.add('hidden');
+            const chapterDetail = document.getElementById('chapter-detail');
+            chapterDetail.classList.remove('hidden');
+            document.getElementById('chapter-breadcrumb').innerText = `Class 12 / ${folderLabels[currentFolder]} / Chapter ${chapter.number}`;
+            chapterDetail.innerHTML = buildChapterDetail(chapter);
+            if (pushHistory) updateUrl(currentFolder, chapter.number, replaceHistory);
+            updateChapterResources(chapter);
+            renderNavigationButtons();
+        }
+
+        function buildChapterDetail(chapter) {
+            return `
+                <div class="p-6 space-y-6">
+                    <div class="space-y-3">
+                        <div class="text-sm text-gray-500">Class 12 • ${folderLabels[currentFolder]}</div>
+                        <h2 class="text-2xl font-semibold text-gray-900">Chapter ${chapter.number}: ${chapter.title}</h2>
+                        <p class="text-sm text-gray-500">Author / Source: ${chapter.author}</p>
+                    </div>
+                    <div id="chapter-resource-details" class="space-y-4"></div>
+                    ${buildResourceCard('🎥', 'Watch Video', 'Open the chapter video if available.', 'video', 'Checking availability…', false)}
+                    ${buildResourceCard('📖', 'Lecture Notes', 'Read the chapter notes rendered from markdown.', 'notes', 'Checking availability…', false)}
+                    ${buildResourceCard('📄', 'Book PDF', 'Preview and download the chapter textbook PDF.', 'pdf', 'Checking availability…', false)}
+                    ${buildResourceCard('📝', 'One Page Revision', 'Open a quick review sheet for the chapter.', 'revision', 'Checking availability…', false)}
+                    ${buildResourceCard('📚', 'Word Meanings', 'Search chapter vocabulary and meanings.', 'vocabulary', 'Checking availability…', false)}
+                    ${buildResourceCard('❓', 'Important Questions', 'Practice important chapter questions.', 'questions', 'Checking availability…', false)}
+                    ${buildResourceCard('🎯', 'Chapter Test', 'Start a timed chapter test with 100 questions.', 'test', 'Checking availability…', false)}
+                    ${buildResourceCard('📊', 'Result', 'View the chapter test result after submission.', 'result', 'Locked until test completion', false, true)}
+                    <div class="rounded-3xl border border-slate-200 bg-slate-50/80 p-4 shadow-sm">
+                        <div class="premium-nav-grid">
+                            <a href="class12.html#${folderShortLabels[currentFolder] ? currentFolder : 'poetry'}" class="nav-button nav-button-back w-full text-center md:text-left" aria-label="Back to ${folderLabels[currentFolder] || 'Class 12'}">
+                                <span class="nav-icon">←</span>
+                                <span>Back to ${folderShortLabels[currentFolder] || folderLabels[currentFolder] || 'Class 12'}</span>
+                            </a>
+                            <button id="previous-chapter-button" type="button" onclick="navigateChapter(-1)" class="nav-button nav-button-secondary w-full" aria-label="Previous chapter">
+                                <span class="nav-icon">←</span>
+                                <span>Previous Chapter</span>
+                            </button>
+                            <button id="next-chapter-button" type="button" onclick="navigateChapter(1)" class="nav-button nav-button-primary w-full" aria-label="Next chapter">
+                                <span>Next Chapter</span>
+                                <span class="nav-icon">→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function buildResourceCard(icon, title, description, key, status, available, locked = false) {
+            const actionLabel = locked ? 'View Result' : {
+                video: 'Watch Now',
+                notes: 'Read Notes',
+                pdf: 'Preview PDF',
+                revision: 'Open Revision',
+                vocabulary: 'Learn Words',
+                questions: 'Practice Now',
+                test: 'Start Test'
+            }[key] || 'Open';
+            return `
+                <div id="resource-${key}" class="rounded-3xl border border-gray-100 bg-white p-5 shadow-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-2xl">${icon}</div>
+                            <div>
+                                <div class="flex flex-wrap gap-2 items-center mb-2">
+                                    <h3 class="text-base font-semibold text-gray-900">${title}</h3>
+                                    <span id="status-${key}" class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-500">${status}</span>
+                                </div>
+                                <p class="text-sm text-gray-500">${description}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 flex-wrap">
+                            <button type="button" id="button-${key}" onclick="handleResourceAction('${key}')" class="resource-button rounded-full border border-cyan-600 bg-cyan-50 px-4 py-2 text-sm font-semibold text-cyan-600 hover:bg-cyan-100 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed" ${available ? '' : 'disabled'}>${actionLabel}</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function navigateChapter(direction) {
+            if (!currentFolder || currentChapterIndex === -1) return;
+            const chapters = chapterData[currentFolder];
+            const nextIndex = currentChapterIndex + direction;
+            if (nextIndex >= 0 && nextIndex < chapters.length) {
+                openChapter(chapters[nextIndex].id);
+            }
+        }
+
+        function renderNavigationButtons() {
+            const previousButton = document.getElementById('previous-chapter-button');
+            const nextButton = document.getElementById('next-chapter-button');
+            if (!previousButton || !nextButton) return;
+            const chapters = chapterData[currentFolder] || [];
+            const isFirst = currentChapterIndex <= 0;
+            const isLast = currentChapterIndex >= chapters.length - 1;
+            previousButton.disabled = isFirst;
+            nextButton.disabled = isLast;
+            previousButton.classList.toggle('disabled', isFirst);
+            nextButton.classList.toggle('disabled', isLast);
+            previousButton.classList.toggle('cursor-not-allowed', isFirst);
+            nextButton.classList.toggle('cursor-not-allowed', isLast);
+        }
+
+        async function updateChapterResources(chapter) {
+            const base = getResourcePaths(chapter);
+            const videoUrl = await findExistingPath([base.video]);
+            const noteUrl = await findExistingPath([base.note]);
+            const pdfUrl = await findExistingPath([base.pdf]);
+            const revisionUrl = await findExistingPath([base.revisionPdf, base.revisionMd]);
+            const vocabUrl = await findExistingPath([base.vocabularyJson, base.vocabularyMd]);
+            const questionsUrl = await findExistingPath([base.questionsJson, base.questionsMd]);
+            const testUrl = await findExistingPath([base.testJson]);
+
+            currentResourceState = {
+                video: { available: !!videoUrl, url: videoUrl },
+                notes: { available: !!noteUrl, url: noteUrl },
+                pdf: { available: !!pdfUrl, url: pdfUrl },
+                revision: { available: !!revisionUrl, url: revisionUrl },
+                vocabulary: { available: !!vocabUrl, url: vocabUrl },
+                questions: { available: !!questionsUrl, url: questionsUrl },
+                test: { available: !!testUrl, url: testUrl },
+                result: { available: false }
+            };
+
+            updateResourceCard('video', videoUrl ? 'Available' : 'Video Coming Soon', videoUrl);
+            updateResourceCard('notes', noteUrl ? 'Available' : 'Notes Coming Soon', noteUrl);
+            updateResourceCard('pdf', pdfUrl ? 'Available' : 'PDF Coming Soon', pdfUrl);
+            updateResourceCard('revision', revisionUrl ? 'Available' : 'Revision Coming Soon', revisionUrl);
+            updateResourceCard('vocabulary', vocabUrl ? 'Available' : 'Vocabulary Coming Soon', vocabUrl);
+            updateResourceCard('questions', questionsUrl ? 'Available' : 'Questions Coming Soon', questionsUrl);
+            updateResourceCard('test', testUrl ? 'Available' : 'Test Coming Soon', testUrl);
+            updateResourceCard('result', currentTestResult ? 'Result Ready' : 'Locked until test completion', null, true);
+
+            if (noteUrl) {
+                const content = await fetchMarkdown(noteUrl);
+                renderNotesContent(content);
+            } else {
+                renderNotesContent('<p class="text-sm text-gray-500">Notes are not available for this chapter yet.</p>');
+            }
+        }
+
+        function updateResourceCard(key, statusText, link, locked = false) {
+            const statusEl = document.getElementById(`status-${key}`);
+            const buttonEl = document.getElementById(`button-${key}`);
+            if (!statusEl || !buttonEl) return;
+            statusEl.textContent = statusText;
+            if (link && !locked) {
+                buttonEl.disabled = false;
+                buttonEl.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                buttonEl.disabled = key !== 'result' && !locked && !link;
+            }
+            if (key === 'result') {
+                buttonEl.disabled = !currentTestResult;
+            }
+        }
+
+        async function findExistingPath(paths) {
+            for (const path of paths) {
+                if (!path) continue;
+                if (await checkUrl(path)) return path;
+            }
+            return null;
+        }
+
+        async function checkUrl(url) {
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                if (response.ok) return true;
+                if (response.status === 405 || response.status === 0) {
+                    const retry = await fetch(url, { method: 'GET', cache: 'no-store' });
+                    return retry.ok;
+                }
+                return false;
+            } catch {
+                return false;
+            }
+        }
+
+        async function fetchMarkdown(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) return null;
+                const text = await response.text();
+                return text;
+            } catch {
+                return null;
+            }
+        }
+
+        function renderNotesContent(markdown) {
+            const container = document.getElementById('chapter-resource-details');
+            if (!container) return;
+            if (!markdown) {
+                container.innerHTML = '<div class="rounded-3xl border border-gray-100 bg-slate-50 p-5 text-sm text-gray-500">Notes could not be loaded.</div>';
+                return;
+            }
+            container.innerHTML = `
+                <div class="rounded-3xl border border-gray-100 bg-slate-50 p-5">
+                    <div class="mb-4 flex items-center justify-between gap-4">
+                        <div>
+                            <h3 class="text-base font-semibold text-gray-900">Lecture Notes Preview</h3>
+                            <p class="text-sm text-gray-500">Rendered from markdown source.</p>
+                        </div>
+                    </div>
+                    <div class="prose prose-sm max-w-full text-sm text-gray-700">${renderMarkdown(markdown)}</div>
+                </div>
+            `;
+        }
+
+        function renderMarkdown(markdown) {
+            if (!markdown) return '';
+            let html = markdown
+                .replace(/\r/g, '')
+                .replace(/^### (.*$)/gim, '<h3 class="text-lg font-semibold text-gray-900 mt-6">$1</h3>')
+                .replace(/^## (.*$)/gim, '<h3 class="text-xl font-semibold text-gray-900 mt-6">$1</h3>')
+                .replace(/^# (.*$)/gim, '<h2 class="text-2xl font-semibold text-gray-900 mt-6">$1</h2>')
+                .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+                .replace(/^- \s?(.*)$/gim, '<li class="ml-4 list-disc">$1</li>')
+                .replace(/\n{2,}/g, '</p><p class="mt-4 text-sm text-gray-700">');
+            html = '<p class="text-sm text-gray-700">' + html + '</p>';
+            html = html.replace(/<p><li/g, '<li').replace(/li><\/p>/g, 'li>');
+            return html;
+        }
+
+        function handleResourceAction(key) {
+            if (!currentChapter) return;
+            const resources = currentResourceState;
+            if (!resources[key] || !resources[key].available) return;
+            if (key === 'video') {
+                window.open(resources.video.url, '_blank');
+                return;
+            }
+            if (key === 'notes') {
+                const content = document.getElementById('chapter-resource-details');
+                if (content) content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
+            if (key === 'pdf' || key === 'revision' || key === 'vocabulary' || key === 'questions') {
+                window.open(resources[key].url, '_blank');
+                return;
+            }
+            if (key === 'test') {
+                simulateTestSubmission();
+                return;
+            }
+            if (key === 'result') {
+                showTestResult();
+                return;
+            }
+        }
+
+        function simulateTestSubmission() {
+            currentTestResult = {
+                score: 82,
+                correct: 82,
+                wrong: 12,
+                skipped: 6,
+                accuracy: '84%',
+                timeTaken: '47m 12s',
+                weakTopics: ['Vocabulary', 'Details'],
+                strongTopics: ['Comprehension', 'Grammar']
+            };
+            currentResourceState.result.available = true;
+            updateResourceCard('result', 'Result Ready', null, true);
+            renderTestResult();
+        }
+
+        function renderTestResult() {
+            const container = document.getElementById('chapter-resource-details');
+            if (!container) return;
+            container.innerHTML = `
+                <div class="rounded-3xl border border-gray-100 bg-white p-5 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-sm text-gray-500">Test Result</p>
+                            <h3 class="text-2xl font-semibold text-gray-900">Score: ${currentTestResult.score}</h3>
+                        </div>
+                        <span class="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-700">Completed</span>
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        ${resultStat('Correct', currentTestResult.correct)}
+                        ${resultStat('Wrong', currentTestResult.wrong)}
+                        ${resultStat('Skipped', currentTestResult.skipped)}
+                        ${resultStat('Accuracy', currentTestResult.accuracy)}
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-3xl border border-gray-100 bg-slate-50 p-4">
+                            <p class="text-sm text-gray-500">Time Taken</p>
+                            <p class="text-base font-semibold text-gray-900">${currentTestResult.timeTaken}</p>
+                        </div>
+                        <div class="rounded-3xl border border-gray-100 bg-slate-50 p-4">
+                            <p class="text-sm text-gray-500">Review</p>
+                            <button onclick="showTestResult()" class="mt-2 rounded-full bg-cyan-600 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-700 transition">Review Answers</button>
+                        </div>
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-3xl border border-gray-100 bg-white p-4">
+                            <p class="text-sm text-gray-500">Weak Topics</p>
+                            <p class="mt-2 text-sm text-gray-700">${currentTestResult.weakTopics.join(', ')}</p>
+                        </div>
+                        <div class="rounded-3xl border border-gray-100 bg-white p-4">
+                            <p class="text-sm text-gray-500">Strong Topics</p>
+                            <p class="mt-2 text-sm text-gray-700">${currentTestResult.strongTopics.join(', ')}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function resultStat(label, value) {
+            return `
+                <div class="rounded-3xl border border-gray-100 bg-slate-50 p-4">
+                    <p class="text-sm text-gray-500">${label}</p>
+                    <p class="mt-2 text-xl font-semibold text-gray-900">${value}</p>
+                </div>
+            `;
+        }
+
+        function showTestResult() {
+            if (!currentTestResult) return;
+            renderTestResult();
+        }
+
+        function getResourcePaths(chapter) {
+            const number = chapter.number.padStart(2, '0');
+            return {
+                video: `BSEB_Class12_English/Videos/ch${number}.mp4`,
+                note: chapter.noteFile,
+                pdf: `BSEB_Class12_English/PDF/chapter${number}.pdf`,
+                revisionPdf: `BSEB_Class12_English/Revision/chapter${number}.pdf`,
+                revisionMd: `BSEB_Class12_English/Revision/chapter${number}.md`,
+                vocabularyJson: `BSEB_Class12_English/Vocabulary/chapter${number}.json`,
+                vocabularyMd: `BSEB_Class12_English/Vocabulary/chapter${number}.md`,
+                questionsJson: `BSEB_Class12_English/Important_Questions/chapter${number}.json`,
+                questionsMd: `BSEB_Class12_English/Important_Questions/chapter${number}.md`,
+                testJson: `BSEB_Class12_English/Tests/chapter${number}.json`
+            };
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

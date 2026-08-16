@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing & Composition Master Course</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            color: #334155;
+        }
+
+        .poster-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+            width: 100%;
+            max-width: 1200px;
+            min-height: 680px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 2rem auto;
+        }
+
+        /* Decorative background elements */
+        .blob-top-right {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .blob-bottom-left {
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .poster-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-img,
+        .board-logo {
+            width: auto;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 24px;
+            background: white;
+            padding: 0.65rem;
+            box-shadow: 0 20px 50px rgba(15,23,42,0.08);
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        .header-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #d946ef;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #475569;
+            margin-top: 0.2rem;
+        }
+
+        .poster-content {
+            display: flex;
+            flex: 1;
+            padding: 0 3rem 3rem 3rem;
+            position: relative;
+            z-index: 10;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .hero-left {
+            flex: 1 1 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+            min-width: 0;
+            max-width: 640px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            background: rgba(255,255,255,0.75);
+            border: 1px solid rgba(148,163,184,0.25);
+            border-radius: 9999px;
+            padding: 0.8rem 1.15rem;
+            color: #334155;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(15,23,42,0.04);
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            font-size: clamp(3.7rem, 6vw, 6.5rem);
+            line-height: 0.9;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #0f172a;
+            max-width: 100%;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, #ec4899 0%, #d946ef 40%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hero-quote {
+            border: 2px solid rgba(217,70,239,0.22);
+            border-radius: 30px;
+            padding: 1.3rem 1.5rem;
+            background: rgba(255,255,255,0.88);
+            max-width: 680px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .quote-mark {
+            font-size: 4.5rem;
+            color: rgba(236,72,153,0.6);
+            font-weight: 900;
+            position: absolute;
+        }
+
+        .quote-start {
+            top: -14px;
+            left: 18px;
+        }
+
+        .quote-end {
+            bottom: -18px;
+            right: 18px;
+        }
+
+        .hero-quote-text {
+            font-size: clamp(2.1rem, 4vw, 3.4rem);
+            line-height: 1.05;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+            padding: 0 0.25rem;
+        }
+
+        .hero-quote-text span {
+            color: transparent;
+            background: linear-gradient(90deg, #ec4899 0%, #d946ef 40%, #a855f7 100%);
+            -webkit-background-clip: text;
+        }
+
+        .hero-copy {
+            font-size: 1.02rem;
+            color: #475569;
+            line-height: 1.85;
+            max-width: 700px;
+            margin-top: 0.5rem;
+        }
+
+        .hero-badges {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(148,163,184,0.18);
+            border-radius: 18px;
+            padding: 1rem 1.1rem;
+            box-shadow: 0 16px 40px rgba(15,23,42,0.06);
+        }
+
+        .hero-badge-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: #f3e8ff;
+            color: #9333ea;
+            font-size: 1.2rem;
+            box-shadow: inset 0 1px 2px rgba(15,23,42,0.08);
+        }
+
+        .hero-badge-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            color: #0f172a;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 2rem;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #ec4899 0%, #d946ef 45%, #a855f7 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 18px 45px rgba(236,72,153,0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 24px 60px rgba(236,72,153,0.28);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 1.5rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(217,70,239,0.24);
+            background: rgba(255,255,255,0.88);
+            color: #1e293b;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(217,70,239,0.08);
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            flex: 1 1 360px;
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 560px;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            width: 520px;
+            height: 520px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle at center, rgba(217,70,239,0.18) 0%, rgba(217,70,239,0.05) 38%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(1px);
+            z-index: 1;
+        }
+
+        .person-image {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            border-radius: 32px;
+            object-fit: cover;
+            box-shadow: 0 30px 80px rgba(15,23,42,0.18);
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-top: 4px solid transparent;
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-border-1 { border-top-color: #ec4899; }
+        .module-border-2 { border-top-color: #d946ef; }
+        .module-border-3 { border-top-color: #a855f7; }
+        .module-border-4 { border-top-color: #f43f5e; }
+        .module-border-5 { border-top-color: #06b6d4; }
+
+        .feature-item-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        @media (max-width: 1024px) {
+            .poster-container {
+                min-height: auto;
+            }
+            .poster-content { flex-direction: column; gap: 1.75rem; padding: 0 1.5rem 2rem 1.5rem; }
+            .hero-left { max-width: 100%; min-width: auto; }
+            .hero-right { width: 100%; min-height: 360px; max-width: 100%; }
+            .hero-image-bg { width: 420px; height: 420px; left: 50%; top: 35%; }
+        }
+        
+        @media (max-width: 640px) {
+            .poster-header { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+            .header-text { text-align: center; }
+            .logo-container { justify-content: center; }
+            .poster-content { padding: 0 1rem 1.5rem 1rem; }
+            .hero-left { width: 100%; }
+            .hero-right { width: 100%; min-height: 300px; max-width: 100%; }
+            .hero-image-bg { width: 240px; height: 240px; top: 26%; }
+            .hero-badges { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.6rem; }
+            .hero-quote { padding: 1rem 1rem; }
+            .hero-quote-text { font-size: 2.2rem; }
+            .quote-mark { font-size: 3.2rem; }
+            .hero-copy { font-size: 0.98rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html#top" class="brand">
+            <img src="Asset/channel logo-2.png" alt="Ravi Sir Target English Classes logo" class="brand-logo" />
+            <span class="brand-text">Target English Classes <small>Ravi Sir</small></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-links">
+            <a href="index.html#classes">Classes</a>
+            <a href="index.html#videos">Videos</a>
+            <a href="index.html#batches">Batches</a>
+            <a href="index.html#materials">Study Material</a>
+            <a href="index.html#audio">Audio Lessons</a>
+            <a href="index.html#chat">AI Chat</a>
+            <a href="login.html" class="btn btn-secondary small btn-glow nav-login">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero / Poster Section -->
+    <div class="poster-container mx-auto">
+        <!-- Background decorative elements -->
+        <div class="blob-top-right"></div>
+        <div class="blob-bottom-left"></div>
+
+        <header class="poster-header">
+            <div class="logo-container">
+                <div class="logo-img" style="background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.5rem;">✍️</div>
+                <div class="header-text">
+                    <div class="header-title">Writing & Composition</div>
+                    <div class="header-subtitle">BSEB Class 12 English</div>
+                </div>
+            </div>
+            <a href="index.html" class="btn-secondary" style="text-decoration: none;">← Back Home</a>
+        </header>
+
+        <main class="poster-content">
+            <div class="hero-left">
+                <span class="hero-tag">📝 High-Weightage Sections</span>
+                
+                <h1 class="hero-title">Master <span>Writing & Composition</span></h1>
+                
+                <div class="hero-quote">
+                    <span class="quote-mark quote-start">"</span>
+                    <p class="hero-quote-text">Transform Your <span>Writing Skills</span></p>
+                    <span class="quote-mark quote-end">"</span>
+                </div>
+
+                <p class="hero-copy">
+                    Comprehensive training in essays, letters, precis writing, and creative composition. Master the high-weightage writing sections of Bihar Board with expert guidance and proven strategies.
+                </p>
+
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">📚</div>
+                        <div class="hero-badge-text">
+                            <span style="font-size: 0.85rem; color: #64748b;">5 Modules</span>
+                            <span>Complete Course</span>
+                        </div>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">⏱️</div>
+                        <div class="hero-badge-text">
+                            <span style="font-size: 0.85rem; color: #64748b;">Self-Paced</span>
+                            <span>Learn Anytime</span>
+                        </div>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">🎯</div>
+                        <div class="hero-badge-text">
+                            <span style="font-size: 0.85rem; color: #64748b;">Exam-Ready</span>
+                            <span>Board Focus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#syllabus" class="btn-primary">Explore Modules</a>
+                    <a href="writing-composition-videos.html" class="btn-secondary">View Content</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-image-bg"></div>
+                <div style="text-align: center; font-size: 6rem; position: relative; z-index: 2;">📖</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Course Info Bar -->
+    <div class="max-w-5xl mx-auto px-4 mb-16 relative z-20 -mt-10 sm:-mt-16">
+        <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col md:flex-row justify-around items-center gap-6 border border-slate-100">
+            <div class="text-center">
+                <div class="text-2xl font-bold text-purple-600">5</div>
+                <div class="text-sm text-gray-600">Comprehensive Modules</div>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-gray-200"></div>
+            <div class="text-center">
+                <div class="text-2xl font-bold text-pink-600">50+</div>
+                <div class="text-sm text-gray-600">Practice Templates</div>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-gray-200"></div>
+            <div class="text-center">
+                <div class="text-2xl font-bold text-fuchsia-600">Board</div>
+                <div class="text-sm text-gray-600">Exam Focused</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Syllabus Section -->
+    <section id="syllabus" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Course Modules</h2>
+            <p class="text-lg text-gray-600">Master each section with structured learning and practice</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Module 1 -->
+            <div class="module-card module-border-1">
+                <div class="text-3xl mb-4">📝</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Module 1: Essay Writing</h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Master the structure of essays. Learn argumentative, descriptive, reflective, and narrative essay writing. Practice with board-specific topics.
+                </p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li>✓ Essay structure & types</li>
+                    <li>✓ Brainstorming techniques</li>
+                    <li>✓ Outline creation</li>
+                    <li>✓ Board practice topics</li>
+                </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-card module-border-2">
+                <div class="text-3xl mb-4">💌</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Module 2: Formal Letters</h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Learn formal letter writing formats. Master applications, complaint letters, and official correspondence.
+                </p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li>✓ Letter format & rules</li>
+                    <li>✓ Formal tone & language</li>
+                    <li>✓ Applications</li>
+                    <li>✓ Official inquiries</li>
+                </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-card module-border-3">
+                <div class="text-3xl mb-4">✂️</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Module 3: Precis Writing</h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Perfect your summarization skills. Learn to identify core themes and remove redundancy effectively.
+                </p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li>✓ Precis techniques</li>
+                    <li>✓ Paragraph unity</li>
+                    <li>✓ Topic sentences</li>
+                    <li>✓ Comprehension practice</li>
+                </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module-card module-border-4">
+                <div class="text-3xl mb-4">🎨</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Module 4: Creative Writing</h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Develop creative and contextual writing skills. Master report writing, messages, and professional communication.
+                </p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li>✓ Report structure</li>
+                    <li>✓ Message writing</li>
+                    <li>✓ CV/Resume building</li>
+                    <li>✓ Context-based writing</li>
+                </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-card module-border-5">
+                <div class="text-3xl mb-4">⚡</div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Module 5: Exam Strategy</h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Master time management and exam techniques. Solve previous year papers and build vocabulary.
+                </p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li>✓ Time management</li>
+                    <li>✓ Mock exams</li>
+                    <li>✓ Speed techniques</li>
+                    <li>✓ Vocabulary building</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Features Section -->
+    <section class="w-full bg-white py-16 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        </div>
+    </section>
+
+    <!-- Course Features Footer Section -->
+    <section class="w-full bg-white py-20 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Course Features</h2>
+                <p class="text-lg text-gray-600">Everything you need to guarantee your success in learning English.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Video Lessons -->
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🎥</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Video Lessons</h3>
+                    <a href="writing-composition-videos.html" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-6 py-3 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
+                        Start Learning Video Lessons
+                    </a>
+                </div>
+
+                <!-- PDF Notes -->
+                <div class="text-center">
+                    <div class="text-5xl mb-4">📄</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">PDF Notes</h3>
+                    <button class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-6 py-3 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
+                        Download PDF Notes
+                    </button>
+                </div>
+
+                <!-- Final Certificate -->
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Final Certificate</h3>
+                    <button class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-6 py-3 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
+                        View Certificate Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main CTA Button -->
+            <div class="text-center">
+                <a href="writing-composition-videos.html" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-8 py-4 rounded-full text-lg hover:shadow-xl transition-all transform hover:scale-105">
+                    Enroll in Course Now
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

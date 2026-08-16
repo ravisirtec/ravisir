@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoken English Batch - Master Communication Skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%); color: #334155; }
+        .nav-header { background: white; padding: 1.5rem 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 50; }
+        .header-wrapper { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+        .header-left { display: flex; align-items: center; gap: 1rem; }
+        .header-title { font-size: 1.3rem; font-weight: 800; background: linear-gradient(90deg, #ec4899, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header-subtitle { font-size: 0.8rem; color: #64748b; }
+        .back-home { text-decoration: none; color: #3b82f6; font-weight: 700; font-size: 0.9rem; transition: all 0.3s ease; }
+        .back-home:hover { color: #ec4899; }
+        .tab-nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem; border-bottom: 2px solid #e2e8f0; }
+        .tab-btn { padding: 0.75rem 1.25rem; border-radius: 8px; background: #f1f5f9; border: none; cursor: pointer; font-weight: 600; white-space: nowrap; transition: all 0.3s ease; color: #64748b; font-size: 0.95rem; }
+        .tab-btn:hover { background: #e2e8f0; color: #0f172a; }
+        .tab-btn.active { background: linear-gradient(90deg, #ec4899, #3b82f6); color: white; }
+        .content-area { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .module-item { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #ec4899; cursor: pointer; transition: all 0.3s ease; }
+        .module-item:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(236,72,153,0.15); }
+        .module-num { font-size: 2.5rem; font-weight: 900; background: linear-gradient(90deg, #ec4899, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+        .module-title { font-size: 1.3rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem; }
+        .module-desc { color: #64748b; margin-bottom: 1rem; line-height: 1.6; }
+        .module-list { list-style: none; margin-bottom: 1rem; }
+        .module-list li { color: #475569; padding: 0.4rem 0 0.4rem 1.5rem; position: relative; }
+        .module-list li::before { content: '✓'; position: absolute; left: 0; color: #ec4899; font-weight: bold; }
+        .btn-primary { display: inline-block; background: linear-gradient(90deg, #ec4899, #3b82f6); color: white; padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 8px 20px rgba(236,72,153,0.2); transition: all 0.3s ease; border: none; cursor: pointer; font-size: 0.95rem; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(236,72,153,0.3); }
+        .module-detail-container { background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.05); border-left: 5px solid #ec4899; }
+        .module-detail-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; }
+        .detail-icon { font-size: 3rem; }
+        .detail-header-text h2 { font-size: 2rem; font-weight: 900; color: #0f172a; margin: 0 0 0.25rem 0; }
+        .detail-header-text p { color: #64748b; margin: 0; }
+        .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .detail-card { background: linear-gradient(135deg, rgba(236,72,153,0.05) 0%, rgba(99,102,241,0.05) 100%); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(236,72,153,0.1); }
+        .detail-card-title { font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; font-size: 1.1rem; }
+        .detail-card-list { list-style: none; padding: 0; margin: 0; }
+        .detail-card-list li { padding: 0.5rem 0 0.5rem 1.5rem; color: #475569; font-size: 0.95rem; position: relative; }
+        .detail-card-list li::before { content: '→'; position: absolute; left: 0; color: #ec4899; font-weight: bold; }
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: #f1f5f9; border-radius: 999px; color: #0f172a; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; }
+        .back-btn:hover { background: #e2e8f0; transform: translateX(-2px); }
+        .overview-hero { background: linear-gradient(135deg, rgba(236,72,153,0.12) 0%, rgba(99,102,241,0.12) 100%); border-radius: 24px; padding: 3rem; margin-bottom: 3rem; border: 1px solid rgba(236,72,153,0.2); }
+        .overview-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; color: #0f172a; }
+        .overview-title span { background: linear-gradient(90deg, #ec4899, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .overview-desc { font-size: 1.1rem; color: #475569; line-height: 1.8; margin-bottom: 1.5rem; max-width: 800px; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .info-card { background: white; padding: 1.5rem; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease; }
+        .info-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(236,72,153,0.15); border-color: #ec4899; }
+        .info-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .info-title { font-weight: 700; color: #0f172a; margin-bottom: 0.3rem; }
+        .info-desc { font-size: 0.9rem; color: #64748b; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .pricing-card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #e2e8f0; transition: all 0.3s ease; position: relative; }
+        .pricing-card.popular { border-top-color: #ec4899; transform: scale(1.05); box-shadow: 0 12px 28px rgba(236,72,153,0.15); }
+        .pricing-badge { position: absolute; top: -12px; right: 20px; background: #ec4899; color: white; padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+        .pricing-title { font-size: 1.3rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; }
+        .pricing-price { font-size: 2.2rem; font-weight: 900; color: #ec4899; margin: 1rem 0; }
+        .pricing-period { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .pricing-list { list-style: none; margin-bottom: 1.5rem; }
+        .pricing-list li { padding: 0.5rem 0; color: #475569; font-size: 0.95rem; }
+        .faq-item { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; border-left: 4px solid #e2e8f0; cursor: pointer; transition: all 0.3s ease; }
+        .faq-item:hover { border-left-color: #ec4899; box-shadow: 0 4px 12px rgba(236,72,153,0.08); }
+        .faq-question { font-weight: 700; color: #0f172a; display: flex; justify-content: space-between; align-items: center; }
+        .faq-toggle { font-size: 1.5rem; color: #ec4899; transition: transform 0.3s ease; }
+        .faq-answer { color: #64748b; margin-top: 1rem; line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
+        .footer { background: #1e293b; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
+        @media (max-width: 768px) {
+            .header-wrapper { flex-direction: column; gap: 1rem; text-align: center; }
+            .tab-nav { gap: 0.25rem; padding: 0 1rem; }
+            .tab-btn { padding: 0.6rem 1rem; font-size: 0.85rem; }
+            .content-area { padding: 1rem; }
+            .overview-hero { padding: 1.5rem; }
+            .overview-title { font-size: 1.8rem; }
+            .module-grid { grid-template-columns: 1fr; }
+            .pricing-card.popular { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html#top" class="brand">
+            <img src="Asset/channel logo-2.png" alt="Ravi Sir Target English Classes logo" class="brand-logo" />
+            <span class="brand-text">Target English Classes <small>Ravi Sir</small></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-links">
+            <a href="index.html#classes">Classes</a>
+            <a href="index.html#videos">Videos</a>
+            <a href="index.html#batches">Batches</a>
+            <a href="index.html#materials">Study Material</a>
+            <a href="index.html#audio">Audio Lessons</a>
+            <a href="index.html#chat">AI Chat</a>
+            <a href="login.html" class="btn btn-secondary small btn-glow nav-login">Login</a>
+        </nav>
+    </header>
+
+    <nav class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
+        <button class="tab-btn" onclick="switchTab('modules')">8 Modules</button>
+        <button class="tab-btn" onclick="switchTab('pricing')">Pricing</button>
+        <button class="tab-btn" onclick="switchTab('faq')">FAQ</button>
+    </nav>
+
+    <div class="content-area">
+
+        <!-- OVERVIEW -->
+        <div id="overview" class="tab-content active">
+            <div class="overview-hero">
+                <h1 class="overview-title">अपनी <span>अंग्रेजी</span> बोलो</h1>
+                <p class="overview-desc">Improve your English speaking, pronunciation, and communication skills with confidence. Master fluency through daily practice, live interactive sessions, and real-life conversations.</p>
+                <button class="btn-primary" onclick="switchTab('modules')">🎧 Explore Modules →</button>
+            </div>
+
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">What You'll Learn</h2>
+            <div class="info-grid">
+                <div class="info-card"><div class="info-icon">🎯</div><div class="info-title">Daily Practice</div><div class="info-desc">Consistent speaking exercises</div></div>
+                <div class="info-card"><div class="info-icon">🔊</div><div class="info-title">AI Feedback</div><div class="info-desc">Real-time pronunciation analysis</div></div>
+                <div class="info-card"><div class="info-icon">📚</div><div class="info-title">Live Classes</div><div class="info-desc">3-5 interactive sessions weekly</div></div>
+                <div class="info-card"><div class="info-icon">🏆</div><div class="info-title">Certification</div><div class="info-desc">Earn recognized completion badge</div></div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl border-l-4 border-pink-500 mt-8">
+                <h3 class="text-2xl font-bold text-slate-900 mb-6">Course Details</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div><p class="text-sm text-slate-600 font-semibold uppercase">Duration</p><p class="text-3xl font-bold text-slate-900">8-12</p><p class="text-sm text-slate-600">Weeks</p></div>
+                    <div><p class="text-sm text-slate-600 font-semibold uppercase">Live Sessions</p><p class="text-3xl font-bold text-slate-900">3-5</p><p class="text-sm text-slate-600">Per Week</p></div>
+                    <div><p class="text-sm text-slate-600 font-semibold uppercase">Modules</p><p class="text-3xl font-bold text-slate-900">8</p><p class="text-sm text-slate-600">Complete Path</p></div>
+                    <div><p class="text-sm text-slate-600 font-semibold uppercase">Support</p><p class="text-3xl font-bold text-slate-900">24/7</p><p class="text-sm text-slate-600">Lifetime Access</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULES -->
+        <div id="modules" class="tab-content">
+            <h2 class="text-3xl font-bold text-slate-900 mb-2">Learning Modules</h2>
+            <p class="text-slate-600 mb-8">Click on any module card to view detailed content</p>
+
+            <div class="module-grid">
+                <div class="module-item" onclick="showModuleDetail(1)">
+                    <div class="module-num">01</div>
+                    <div class="module-title">Pronunciation Basics</div>
+                    <div class="module-desc">Master English sounds and phonetics</div>
+                    <ul class="module-list"><li>English Sounds & Phonetics</li><li>Vowel & Consonant Sounds</li><li>Stress & Intonation</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+
+                <div class="module-item" onclick="showModuleDetail(2)">
+                    <div class="module-num">02</div>
+                    <div class="module-title">Fluency Training</div>
+                    <div class="module-desc">Build smooth speaking patterns</div>
+                    <ul class="module-list"><li>Daily Speaking Drills</li><li>Sentence Construction</li><li>Smooth Delivery</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+
+                <div class="module-item" onclick="showModuleDetail(3)">
+                    <div class="module-num">03</div>
+                    <div class="module-title">Real Conversations</div>
+                    <div class="module-desc">Practice authentic dialogues</div>
+                    <ul class="module-list"><li>Daily Chit-Chat</li><li>Phone Conversations</li><li>Job Interviews</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+
+                <div class="module-item" onclick="showModuleDetail(4)">
+                    <div class="module-num">04</div>
+                    <div class="module-title">Grammar & Vocabulary</div>
+                    <div class="module-desc">Enhance accuracy and richness</div>
+                    <ul class="module-list"><li>Tense Mastery</li><li>Phrasal Verbs</li><li>Idiomatic Expressions</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+
+                <div class="module-item" onclick="showModuleDetail(5)">
+                    <div class="module-num">05</div>
+                    <div class="module-title">Listening Skills</div>
+                    <div class="module-desc">Advanced comprehension abilities</div>
+                    <ul class="module-list"><li>Audio Training</li><li>Podcast Listening</li><li>Movie Dialogue</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+
+                <div class="module-item" onclick="showModuleDetail(6)">
+                    <div class="module-num">06</div>
+                    <div class="module-title">Confidence Building</div>
+                    <div class="module-desc">Overcome nervousness</div>
+                    <ul class="module-list"><li>Group Discussions</li><li>Presentations</li><li>Mock Interviews</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+
+                <div class="module-item" onclick="showModuleDetail(7)">
+                    <div class="module-num">07</div>
+                    <div class="module-title">Advanced Topics</div>
+                    <div class="module-desc">Professional & specialized English</div>
+                    <ul class="module-list"><li>Debate & Argumentation</li><li>Business English</li><li>Story Telling</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+
+                <div class="module-item" onclick="showModuleDetail(8)">
+                    <div class="module-num">08</div>
+                    <div class="module-title">Final Assessment</div>
+                    <div class="module-desc">Earn your certification</div>
+                    <ul class="module-list"><li>Mock Tests</li><li>Performance Evaluation</li><li>Certification</li></ul>
+                    <button class="btn-primary">View Details →</button>
+                </div>
+            </div>
+
+            <div id="module-details" style="margin-top: 3rem;"></div>
+        </div>
+
+        <!-- PRICING -->
+        <div id="pricing" class="tab-content">
+            <h2 class="text-3xl font-bold text-slate-900 mb-2">Flexible Pricing Plans</h2>
+            <p class="text-slate-600 mb-8">Choose the plan that suits your learning goals</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-title">Basic</div>
+                    <p class="text-sm text-slate-600">Perfect for beginners</p>
+                    <div class="pricing-price">₹2,999</div>
+                    <p class="pricing-period">for 4 weeks</p>
+                    <ul class="pricing-list">
+                        <li>✓ Video lessons</li>
+                        <li>✓ Audio files & transcripts</li>
+                        <li>✓ Email support</li>
+                        <li>✗ Live classes</li>
+                    </ul>
+                    <button class="btn-primary w-full text-center">Enroll Now</button>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="pricing-badge">Popular</div>
+                    <div class="pricing-title">Premium</div>
+                    <p class="text-sm text-slate-600">Most comprehensive</p>
+                    <div class="pricing-price">₹5,999</div>
+                    <p class="pricing-period">for 8 weeks</p>
+                    <ul class="pricing-list">
+                        <li>✓ All Basic features</li>
+                        <li>✓ 8 Live classes</li>
+                        <li>✓ AI pronunciation feedback</li>
+                        <li>✓ 1-on-1 doubt sessions</li>
+                    </ul>
+                    <button class="btn-primary w-full text-center">Enroll Now</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-title">Pro</div>
+                    <p class="text-sm text-slate-600">For serious learners</p>
+                    <div class="pricing-price">₹9,999</div>
+                    <p class="pricing-period">for 12 weeks</p>
+                    <ul class="pricing-list">
+                        <li>✓ All Premium features</li>
+                        <li>✓ 12 Live classes</li>
+                        <li>✓ Unlimited 1-on-1 coaching</li>
+                        <li>✓ Lifetime access & updates</li>
+                    </ul>
+                    <button class="btn-primary w-full text-center">Enroll Now</button>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mt-8">
+                <h3 class="font-bold text-slate-900 mb-2">💡 Special Offer</h3>
+                <p class="text-slate-700">Join before July 31st and get <strong>20% discount</strong> on all plans!</p>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div id="faq" class="tab-content">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question"><span>How are the live classes conducted?</span><span class="faq-toggle">+</span></div>
+                <div class="faq-answer">Live classes are conducted via Zoom. You'll interact directly with instructors, ask questions, and practice speaking with other students. All sessions are recorded for playback.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question"><span>What happens after the course ends?</span><span class="faq-toggle">+</span></div>
+                <div class="faq-answer">You'll receive a certificate of completion and lifetime access to all recorded sessions and study materials. We also offer optional extension programs.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question"><span>Can I join if my English is very weak?</span><span class="faq-toggle">+</span></div>
+                <div class="faq-answer">Absolutely! Our Basic module is designed for beginners, and our instructors adapt to your pace. We also offer one-on-one foundation sessions.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question"><span>Is there a refund policy?</span><span class="faq-toggle">+</span></div>
+                <div class="faq-answer">Yes, we offer a 7-day money-back guarantee. No questions asked. After 7 days, you can request a one-time extension.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question"><span>How will I track my progress?</span><span class="faq-toggle">+</span></div>
+                <div class="faq-answer">You'll have access to a personalized dashboard with your completed modules, test scores, and detailed progress reports.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question"><span>What's the difference between the plans?</span><span class="faq-toggle">+</span></div>
+                <div class="faq-answer">Basic includes video content. Premium adds live classes and AI feedback. Pro includes unlimited 1-on-1 coaching and lifetime updates.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Bihar Board Learning Platform - Master English. Change Your Future.</p>
+        <p class="text-sm mt-2">Expert guidance for your success</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const moduleDetails = {
+            1: { icon: '🔊', title: 'Pronunciation Basics', subtitle: 'Foundation for clear speaking', content: [
+                { title: 'Audio Fundamentals', items: ['English vowel sounds', 'Consonant pronunciation', 'Sound combinations', 'Syllable stress patterns'] },
+                { title: 'Accent & Flow', items: ['British accent basics', 'American accent basics', 'Accent neutralization', 'Intonation patterns'] },
+                { title: 'Practice Methods', items: ['Tongue twisters', 'Minimal pairs', 'Recording & playback', 'Peer feedback'] }
+            ]},
+            2: { icon: '⚡', title: 'Fluency Training', subtitle: 'Smooth and continuous speaking', content: [
+                { title: 'Speaking Drills', items: ['Daily exercises', 'Timed challenges', 'Monologue practice', 'Impromptu drills'] },
+                { title: 'Sentence Construction', items: ['Complex sentences', 'Connecting words', 'Transitional phrases', 'Discourse markers'] },
+                { title: 'Flow Techniques', items: ['Pacing control', 'Pausing techniques', 'Stress patterns', 'Natural rhythm'] }
+            ]},
+            3: { icon: '💬', title: 'Real Conversations', subtitle: 'Authentic English dialogues', content: [
+                { title: 'Everyday', items: ['Greetings & small talk', 'Ordering food', 'Shopping', 'Asking directions'] },
+                { title: 'Professional', items: ['Job interviews', 'Phone calls', 'Email discussion', 'Presentations'] },
+                { title: 'Social', items: ['Parties', 'Gatherings', 'Networking', 'Public speaking'] }
+            ]},
+            4: { icon: '📚', title: 'Grammar & Vocabulary', subtitle: 'Accuracy and richness', content: [
+                { title: 'Core Grammar', items: ['Tense mastery', 'Subject-verb agreement', 'Articles', 'Prepositions'] },
+                { title: 'Advanced', items: ['Phrasal verbs', 'Idioms & slang', 'Colloquialisms', 'Formal vs informal'] },
+                { title: 'Vocabulary', items: ['Thematic vocab', 'Word formations', 'Synonyms', 'Context-based'] }
+            ]},
+            5: { icon: '👂', title: 'Listening Comprehension', subtitle: 'Strong listening skills', content: [
+                { title: 'Audio Training', items: ['Podcasts', 'Movies', 'News', 'Audiobooks'] },
+                { title: 'Accents', items: ['British English', 'American English', 'Indian English', 'Global accents'] },
+                { title: 'Techniques', items: ['Note-taking', 'Key words', 'Inferencing', 'Context'] }
+            ]},
+            6: { icon: '🏆', title: 'Confidence Building', subtitle: 'Bold and convincing speaking', content: [
+                { title: 'Public Speaking', items: ['Discussions', 'Presentations', 'Seminars', 'Workshops'] },
+                { title: 'Anxiety', items: ['Breathing techniques', 'Visualization', 'Stress reduction', 'Mental prep'] },
+                { title: 'Practice', items: ['Mock interviews', 'Peer interactions', 'Role-play', 'Q&A sessions'] }
+            ]},
+            7: { icon: '🚀', title: 'Advanced Topics', subtitle: 'Professional English', content: [
+                { title: 'Professional', items: ['Business communication', 'Leadership English', 'Negotiation', 'Presentations'] },
+                { title: 'Advanced', items: ['Debate', 'Critical thinking', 'Story telling', 'Persuasive speaking'] },
+                { title: 'Specialized', items: ['Technical', 'Medical', 'Legal', 'Tourism'] }
+            ]},
+            8: { icon: '🎓', title: 'Final Assessment', subtitle: 'Earn your certification', content: [
+                { title: 'Evaluation', items: ['Written test', 'Speaking test', 'Listening eval', 'Performance review'] },
+                { title: 'Tests', items: ['Prepared speech', 'Impromptu speaking', 'Conversation demo', 'Comprehension'] },
+                { title: 'Certification', items: ['Digital cert', 'Performance report', 'Skill validation', 'Lifetime access'] }
+            ]}
+        };
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            document.querySelector('.content-area').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showModuleDetail(id) {
+            const data = moduleDetails[id];
+            let html = `<button class="back-btn" onclick="document.getElementById('module-details').innerHTML = '';">← Back to Modules</button>
+                <div class="module-detail-container">
+                    <div class="module-detail-header">
+                        <div class="detail-icon">${data.icon}</div>
+                        <div class="detail-header-text">
+                            <h2>${data.title}</h2>
+                            <p>${data.subtitle}</p>
+                        </div>
+                    </div>
+                    <div class="detail-grid">`;
+            data.content.forEach(section => {
+                html += `<div class="detail-card"><div class="detail-card-title">${section.title}</div><ul class="detail-card-list">${section.items.map(item => `<li>${item}</li>`).join('')}</ul></div>`;
+            });
+            html += `</div><div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #f1f5f9;"><button class="btn-primary" onclick="switchTab('pricing')">🎧 Enroll in This Module →</button></div></div>`;
+            document.getElementById('module-details').innerHTML = html;
+            document.getElementById('module-details').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleFAQ(el) { el.classList.toggle('active'); }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
